@@ -1,0 +1,16 @@
+%h2.pull-left= t('issues.list').html_safe
+.bartitle
+	.btn-toolbar.text-right
+		.btn-group
+			= link_to new_issue_path, :class => 'btn', :title => t('issues.new').html_safe do
+				%i.icon-plus
+
+	.well.form-actions
+		%form.form-search
+			= text_field_tag :q, nil, :placeholder => t('issues.search').html_safe, :class => 'searchbar pull-left', 'data-provide' => 'typeahead', :klass => "issues"
+
+#issues.partial
+	= render :partial => 'listing', :locals => {:issues => @objects}
+
+
+

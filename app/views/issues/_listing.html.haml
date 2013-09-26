@@ -1,0 +1,29 @@
+- unless issues.empty?
+
+	.pull-left.paginate
+		= [issues.total_count.to_s, t('model.issue').downcase].join(" ")
+	= paginate issues
+	%table.table.table-striped
+		%tr
+			%th= t('issues.report_date')
+			%th= t('issues.status')
+			%th= t('issues.description')
+			%th= t('issues.user')
+			%th= t('issues.category')
+			%th
+		%tbody
+			- issues.each do |issue|
+				%tr{href: url_for(issue)}
+					%td= issue.report_date 
+					%td= issue.status.name 
+					%td= issue.description.html_safe unless issue.description.nil?
+					%td= issue.user.name
+					%td= issue.category.name.html_safe unless issue.category.nil?
+					%td
+						= link_to edit_issue_path(issue), :class => 'btn btn-small', :title => t('issues.edit').html_safe do
+							%i.icon-edit
+						= link_to issue_path(issue), :class => 'btn btn-small', :title => t('issues.destroy').html_safe, method: :delete, data: { confirm: t('issues.confirm_destroy').html_safe } do
+							%i.icon-remove
+
+= paginate issues
+

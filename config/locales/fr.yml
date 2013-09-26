@@ -1,0 +1,88 @@
+fr:
+  model:
+    issue: "Ticket(s)"
+    status: "Statut(s)"
+    category: "Catégorie(s)"
+
+  issues:
+    list: "Tickets"
+    new: "Créer un ticket"
+    edit: "Mettre à jour un ticket"
+    destroy: "Supprimer un ticket"
+    confirm_destroy: "Etes-vous sûr de vouloir supprimer ce ticket?"
+    search: "Rechercher un ticket..."
+    description: "Description"
+    report_date: "Date"
+    detailed_cause: "Cause détaillée"
+    start_time: "Date de début"
+    end_time: "Date de fin"
+    duration_1: "Durée 1"
+    duration_2: "Durée 2"
+    closure_date: "Date de clotûre"
+    reactivité: "Réactivité"
+    app_status: "Statut de l'application"
+    formal_description: "Description formalisée"
+    problem: "Problème"
+    status: "Statut"
+    category: "Catégorie"
+    user: "Créateur"
+  statuses:
+    list: "Statuts"
+    new: "Créer un statut"
+    edit: "Mettre à jour ce statut"
+    destroy: "Supprimer ce statut"
+    confirm_destroy: "Etes-vous sûr de vouloir supprimer ce statut?"
+    search: "Rechercher un statut..."
+    name: "Nom"
+    description: "Description"
+  categories:
+    list: "Catégories"
+    new: "Créer une catégorie"
+    edit: "Mettre à jour une catégorie"
+    destroy: "Supprimer une catégorie"
+    confirm_destroy: "Etes-vous sûr de vouloir supprimer cette catégorie?"
+    search: "Rechercher une catégorie..."
+    name: "Nom"
+    description: "Description"
+    select_one: "Choisir une catégorie..."
+  views:
+    pagination:
+      first: "Premier"
+      last: "Dernier"
+      previous: "&lsaquo;&lsaquo;"
+      next: "&rsaquo;&rsaquo;"
+      truncate: "..."
+  titles:
+    edit: "Modifier"
+    reset: "Remettre à zéro"
+  helpers:
+    words:
+      yeslabel: "Oui"
+      nolabel: "Non"
+      none: "Aucun(e)"
+      all: "Tous"
+      results: "R&eacute;sultat(s)"
+    submit:
+      create: "Créer"
+      update: "Mettre à jour"
+      cancel: "Annuler"
+      back: "Retour"
+  date:
+    order:
+      - :day
+      - :month
+      - :year
+  datetime:
+    distance_in_words: 
+      x_months:
+        one: "Il y a un mois"
+        other: "Il y a %{count} mois"
+      about_x_months:
+        one: "Il y a un mois"
+        other: "Il y a % {count} mois"
+      x_days:
+        one: "Aujourd'hui"
+        other: "Il y a %{count} jours"
+      about_x_hours:
+        one: "Il y a une heure"
+        other: "Il y a %{count} heures"

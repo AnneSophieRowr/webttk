@@ -1,0 +1,23 @@
+- unless statuses.empty?
+
+	.pull-left.paginate
+		= [statuses.total_count.to_s, t('model.status').downcase].join(" ")
+	= paginate statuses
+	%table.table.table-striped
+		%tr
+			%th= t('statuses.name')
+			%th= t('statuses.description')
+			%th
+		%tbody
+			- statuses.each do |status|
+				%tr
+					%td= status.name.html_safe unless status.name.nil?
+					%td= status.description unless status.description.nil?
+					%td
+						= link_to edit_status_path(status), :class => 'btn btn-small', :title => t('statuses.edit').html_safe do
+							%i.icon-edit
+						= link_to status_path(status), :class => 'btn btn-small', :title => t('statuses.destroy').html_safe, method: :delete, data: { confirm: t('statuses.confirm_destroy').html_safe } do
+							%i.icon-remove
+
+= paginate statuses
+

@@ -1,0 +1,15 @@
+.navbar
+	.navbar-inner
+		= link_to 'WebTTK', issues_path, :class => 'brand'
+		%ul.nav
+			%li= link_to t('statuses.list'), statuses_path
+			%li= link_to t('categories.list'), categories_path
+
+		%ul.nav.pull-right
+			%li.pull-right
+				= link_to "#{current_user.name} (#{current_user.email})", edit_user_path(current_user)
+			%li.pull-right
+				= link_to destroy_user_session_path, :method => 'delete', :style => "padding: 12px 0 11px;", :alt => t('devise.logout').html_safe do
+					= image_tag "exclamation.png", :style => "width: 15px;", :alt => t('devise.logout').html_safe, :title => t('devise.logout').html_safe
+
+

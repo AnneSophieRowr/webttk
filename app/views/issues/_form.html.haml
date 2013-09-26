@@ -1,0 +1,21 @@
+= simple_form_for @issue, :html => {:class => 'form-horizontal well'} do |f|
+	= f.input :status, collection: Status.all, selected: @issue.status
+	= f.input :category, collection: Category.all, selected: @issue.category, prompt: t('categories.select_one')
+	= f.input :report_date, as: :datepicker
+	= f.input :start_time, as: :datepicker
+	= f.input :end_time, as: :datepicker
+	= f.input :closure_date, as: :datepicker
+	= f.input :reactivity, collection: Issue::REACTIVITIES, include_blank: false
+	= f.input :app_status, collection: Issue::APP_STATUSES, include_blank: false, selected: @issue.app_status
+	= f.input :detailed_cause
+	= f.input :description
+	= f.input :duration_1, as: :duration
+	= f.input :duration_2, as: :duration
+	= f.input :formal_description
+	= f.input :problem
+	= f.input :user_id, as: :hidden
+
+	.form_actions
+		= f.button :submit
+		= link_to t('helpers.submit.cancel').html_safe, issues_path, :class => 'btn'
+

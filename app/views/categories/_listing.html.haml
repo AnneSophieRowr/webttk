@@ -1,0 +1,23 @@
+- unless categories.empty?
+
+	.pull-left.paginate
+		= [categories.total_count.to_s, t('model.category').downcase].join(" ")
+	= paginate categories
+	%table.table.table-striped
+		%tr
+			%th= t('categories.name')
+			%th= t('categories.description')
+			%th
+		%tbody
+			- categories.each do |category|
+				%tr
+					%td= category.name.html_safe unless category.name.nil?
+					%td= category.description unless category.description.nil?
+					%td
+						= link_to edit_category_path(category), :class => 'btn btn-small', :title => t('categories.edit').html_safe do
+							%i.icon-edit
+						= link_to category_path(category), :class => 'btn btn-small', :title => t('categories.destroy').html_safe, method: :delete, data: { confirm: t('categories.confirm_destroy').html_safe } do
+							%i.icon-remove
+
+= paginate categories
+

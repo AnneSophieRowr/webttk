@@ -1,0 +1,39 @@
+fr:
+  simple_form:
+    required:
+      text: 'required'
+      mark: '*'
+    error_notification:
+      default_message: "Please review the problems below:"
+    labels:
+      defaults:
+        name: 'Nom'
+        value: 'Valeur'
+        description: 'Description'
+      user:
+        last_name: 'Nom'
+        first_name: 'Prénom'
+        password: 'Mot de passe'
+      issue:
+        report_date: 'Date'
+        detailed_cause: 'Cause détaillée'
+        start_time: 'Date de début'
+        end_time: 'Date de fin'
+        duration_1: 'Durée 1' 
+        duration_2: 'Durée 2'
+        closure_date: 'Date de clotûre'
+        reactivity: 'Réactivité'
+        app_status: "Statut de l'application"
+        status: 'Statut'
+        category: 'Catégorie'
+        user: 'Créateur'
+        formal_description: 'Description formelle'
+        problem: 'Problème'
+
+    #     edit:
+    #       email: 'E-mail.'
+    # hints:
+    #   defaults:
+    #     username: 'User name to sign in.'
+    #     password: 'No special characters, please.'
+
