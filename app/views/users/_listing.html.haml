@@ -1,0 +1,25 @@
+- unless users.empty?
+
+	.pull-left.paginate
+		= [users.total_count.to_s, t('model.user').downcase].join(" ")
+	= paginate users
+	%table.table.table-striped
+		%tr
+			%th= t('users.last_name')
+			%th= t('users.first_name')
+			%th= t('users.email')
+			%th
+		%tbody
+			- users.each do |user|
+				%tr{href: url_for(user)}
+					%td= user.last_name
+					%td= user.first_name
+					%td= user.email
+					%td
+						= link_to edit_user_path(user), :class => 'btn btn-small', :title => t('users.edit').html_safe do
+							%i.icon-edit
+						= link_to user_path(user), :class => 'btn btn-small', :title => t('users.destroy').html_safe, method: :delete, data: { confirm: t('users.confirm_destroy').html_safe } do
+							%i.icon-remove
+
+= paginate users
+

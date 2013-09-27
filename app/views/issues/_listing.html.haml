@@ -8,8 +8,9 @@
 			%th= t('issues.report_date')
 			%th= t('issues.status')
 			%th= t('issues.description')
-			%th= t('issues.user')
-			%th= t('issues.category')
+			%th= t('issues.creator')
+			%th= t('issues.equipement')
+			%th= t('issues.application')
 			%th
 		%tbody
 			- issues.each do |issue|
@@ -17,8 +18,9 @@
 					%td= issue.report_date 
 					%td= issue.status.name 
 					%td= issue.description.html_safe unless issue.description.nil?
-					%td= issue.user.name
-					%td= issue.category.name.html_safe unless issue.category.nil?
+					%td= issue.creator.name
+					%td= issue.equipment
+					%td= issue.application
 					%td
 						= link_to edit_issue_path(issue), :class => 'btn btn-small', :title => t('issues.edit').html_safe do
 							%i.icon-edit

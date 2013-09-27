@@ -21,21 +21,23 @@ ActiveRecord::Schema.define(version: 20130926095048) do
   end
 
   create_table "issues", force: true do |t|
-    t.datetime "report_date",                            null: false
-    t.string   "description",                            null: false
-    t.string   "detailed_cause"
+    t.integer  "status_id",      default: 1, null: false
+    t.datetime "report_date",                null: false
+    t.text     "description",                null: false
+    t.integer  "created_by_id",              null: false
+    t.integer  "notified_by_id",             null: false
+    t.string   "equipment",                  null: false
+    t.string   "application",                null: false
+    t.text     "action"
+    t.text     "next_action"
+    t.text     "detailed_cause"
     t.datetime "start_time"
     t.datetime "end_time"
-    t.datetime "duration_1"
-    t.datetime "duration_2"
     t.datetime "closure_date"
-    t.string   "reactivity",         default: "Reactif", null: false
-    t.string   "app_status",         default: "Ok",      null: false
-    t.string   "formal_description"
-    t.string   "problem"
-    t.integer  "status_id",          default: 1,         null: false
+    t.string   "detection"
+    t.string   "app_status"
     t.integer  "category_id"
-    t.integer  "user_id",                                null: false
+    t.text     "problem"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,9 +1,11 @@
 .navbar
 	.navbar-inner
 		= link_to 'WebTTK', issues_path, :class => 'brand'
-		%ul.nav
-			%li= link_to t('statuses.list'), statuses_path
-			%li= link_to t('categories.list'), categories_path
+		- if current_user.admin
+			%ul.nav
+				%li= link_to t('statuses.list'), statuses_path
+				%li= link_to t('categories.list'), categories_path
+				%li= link_to t('users.list'), users_path
 
 		%ul.nav.pull-right
 			%li.pull-right

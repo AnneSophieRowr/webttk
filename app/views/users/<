@@ -1,0 +1,39 @@
+%legend.bartitle
+	%h2.pull-left= @issue.description.html_safe if @issue.description
+	.btn-toolbar.text-right 
+		.btn-group
+			= link_to edit_issue_path(@issue), :class => 'btn', :title => t('issues.edit') do
+				%i.icon-edit
+			= link_to @issue, :class => 'btn', :title => t('issues.destroy'), method: :delete, data: { confirm: t('issues.confirm_destroy') } do
+				%i.icon-remove
+
+%dl.dl-horizontal
+	%dt= t('issues.report_date')
+	%dd= @issue.report_date
+	%dt= t('issue.description')
+	%dd= @issue.description.html_safe  
+	%dt= t('issue.detailed_cause')
+	%dd= @issue.detailed_cause.html_safe unless @issue.detailed_cause.nil?
+	%dt= t('issue.start_time')
+	%dd= @issue.start_time
+	%dt= t('issue.end_time')
+	%dd= @issue.end_time
+	%dt= t('issue.duration_1.')
+	%dd= @issue.duration_1
+	%dt= t('issue.duration_2')
+	%dd= @issue.duration_2
+	%dt= t('issue.closure_date')
+	%dd= @issue.closure_date
+	%dt= t('issue.reactivity')
+	%dd= @issue.reactivity.html_safe unless @issue.reactivity.nil?
+	%dt= t('issue.app_status')
+	%dd= @issue.app_status
+	%dt= t('issue.status')
+	%dd= @issue.status.name
+	%dt= t('issue.category')
+	%dd= @issue.category.name unless @issue.category.nil?
+	%dt= t('issues.user')
+	%dd= @issue.user.name unless @issue.user.nil?
+
+
+= link_to t('helpers.submit.back').html_safe, :back, :class => 'btn'

@@ -13,13 +13,18 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.datepicker
-//= require turbolinks
 //= require bootstrap
 //= require_tree .
 
 $(document).ready(function(){
 
 	$(".date_picker").datepicker( $.datepicker.regional['fr'] );
+
+	$(document).on({
+	 click: function(){ 
+			window.location = $(this).parent().attr("href");
+		},  
+	},'#issues td');
 
   //searchbars
   $(".searchbar").attr("autocomplete", "off");
