@@ -8,6 +8,9 @@
 	.well.form-actions
 		%form.form-search
 			= text_field_tag :q, nil, :placeholder => t('users.search').html_safe, :class => 'searchbar pull-left', 'data-provide' => 'typeahead', :klass => "users"
+			%label{:for => 'admin'}
+				= t('issues.admin')
+			= check_box_tag :admin, 1, false,  { :class => 'filter', :klass => 'users' }
 
 #users.partial
 	= render :partial => 'listing', :locals => {:users => @objects}

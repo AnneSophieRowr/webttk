@@ -1,5 +1,7 @@
-- unless users.empty?
+- if users.empty?
+	= t('users.empty')
 
+- else
 	.pull-left.paginate
 		= [users.total_count.to_s, t('model.user').downcase].join(" ")
 	= paginate users
@@ -12,8 +14,8 @@
 		%tbody
 			- users.each do |user|
 				%tr{href: url_for(user)}
-					%td= user.last_name
-					%td= user.first_name
+					%td= user.last_name.capitalize
+					%td= user.first_name.capitalize
 					%td= user.email
 					%td
 						= link_to edit_user_path(user), :class => 'btn btn-small', :title => t('users.edit').html_safe do

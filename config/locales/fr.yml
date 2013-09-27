@@ -1,25 +1,49 @@
 fr:
+  activerecord:
+    errors:
+      models: 
+        user:
+          attributes:
+            email:
+              taken: "Cet email est déjà pris."
+            password:
+              blank: "Veuillez renseigner le mot de passe"
+              too_short: "Le mot de passe est trop court"
+            password_confirmation:
+              confirmation: "Veuillez confirmer le mot de passe"
   model:
     issue: "Ticket(s)"
     status: "Statut(s)"
     category: "Catégorie(s)"
-
+    user: "Utilisateur(s)"
   users:
     list: "Utilisateurs"
     new: "Créer un utilisateur"
+    create: "Utilisateur créé avec succès"
     edit: "Mettre à jour un utilisateur"
+    update: "Utilisateur mis à jour avec succès"
     destroy: "Supprimer cet utilisteur"
     confirm_destroy: "Etes-vous sûr de vouloir supprimer cet utilisateur?"
     search: "Recherche un utilisateur..."
+    empty: "Aucun utilisateur"
+    last_name: "Nom"
+    first_name: "Prénom"
+    admin: "Admin?"
+    last_sign_in_at: "Date de dernière connexion"
+    last_sign_in_ip: "Adresse IP de dernière connexion"
+    sign_in_count: "Nombre de connexions"
   issues:
     list: "Tickets"
     new: "Créer un ticket"
+    create: "Ticket créé avec succès"
     edit: "Mettre à jour un ticket"
+    update: "Ticket mis à jour avec succès"
     destroy: "Supprimer ce ticket"
     confirm_destroy: "Etes-vous sûr de vouloir supprimer ce ticket?"
     search: "Rechercher un ticket..."
+    empty: "Aucun ticket"
     required_fields: "Champs obligatoires"
-    status: "Statut"
+    status_id: "Statut"
     report_date: "Date d'ouverture"
     creator: "Créateur"
     notifier: "Détecteur"
@@ -35,24 +59,31 @@ fr:
     closure_date: "Date de clotûre"
     detection: "Détection"
     app_status: "Statut de l'application"
-    category: "Catégorie"
+    category_id: "Catégorie"
     problem: "Problème"
+    mine: "Mes tickets"
   statuses:
     list: "Statuts"
     new: "Créer un statut"
+    create: "Statut créé avec succès"
     edit: "Mettre à jour ce statut"
+    update: "Statut mis à jour avec succès"
     destroy: "Supprimer ce statut"
     confirm_destroy: "Etes-vous sûr de vouloir supprimer ce statut?"
     search: "Rechercher un statut..."
+    empty: "Aucun statut"
     name: "Nom"
     description: "Description"
   categories:
     list: "Catégories"
     new: "Créer une catégorie"
+    create: "Catégorie créée avec succès"
     edit: "Mettre à jour une catégorie"
+    update: "Catégorie mise à jour avec succès"
     destroy: "Supprimer une catégorie"
     confirm_destroy: "Etes-vous sûr de vouloir supprimer cette catégorie?"
     search: "Rechercher une catégorie..."
+    empty: "Aucune catégorie"
     name: "Nom"
     description: "Description"
   views:

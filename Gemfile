@@ -7,7 +7,7 @@ gem 'rails', '4.0.0'
 
 gem 'thin'
 
-gem 'mysql'
+gem 'mysql2'
 
 gem 'devise'
 

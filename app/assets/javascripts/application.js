@@ -26,6 +26,12 @@ $(document).ready(function(){
 		},  
 	},'#issues td');
 
+	$(document).on({
+	 click: function(){ 
+			window.location = $(this).parent().attr("href");
+		},  
+	},'#users td');
+
   //searchbars
   $(".searchbar").attr("autocomplete", "off");
 
@@ -34,7 +40,7 @@ $(document).ready(function(){
       search_klass = this.$element.attr('klass');
       nested = this.$element.attr('nested');
       $.getJSON(
-        'home/search.json',
+        'generic/search.json',
         {q: query, klass: search_klass, nested: nested},
         function (data) {
           items = []; 
@@ -47,7 +53,7 @@ $(document).ready(function(){
         }   
       );  
       $.get(
-        'home/search',
+        'generic/search',
         {q: query, klass: search_klass, nested: nested},
         function (data) {
           console.log();
@@ -59,5 +65,31 @@ $(document).ready(function(){
       if (map[item].url != 'none') { window.location = map[item].url; }
     }   
   });
+
+	//filters
+	$('.filter').on('change click', function() {
+		filters = $('.filter')
+		klass = filters.attr('klass')
+		params = {}
+		for (var i = 0 ; i < filters.length; i++)
+		{ 
+			field = filters[i].name;
+			if (filters[i].type == 'checkbox' && !filters[i].checked) {
+				value = 0; 
+			}
+			else {
+				value = filters[i].value;
+			}
+			params[field] = value;
+			console.log(params);
+		}
+		$.get(
+			'generic/filter',
+			{filters: params, klass: klass},
+			function (data) {
+				$('#' + klass)[0].innerHTML = data;
+			}
+		);
+	});
 
 });

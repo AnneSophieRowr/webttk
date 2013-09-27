@@ -1,45 +1,14 @@
-= simple_form_for @issue, :html => {:class => 'form-horizontal'} do |f|
+= simple_form_for @user, :html => {:class => 'form-horizontal'} do |f|
 
-	.accordion#accordion
-		.accordion-group
-			.accordion-heading
-				%h3= link_to t('issues.required_fields'), '#required', 'data-toggle' => 'collapse', 'data-parent' => "#accordion"
-			.accordion-body.collapse.in#required	
-				.accordion-inner
-					.well
-						= f.input :status_id, collection: Status.all, selected: @issue.status
-						= f.input :report_date, as: :datepicker
-						= f.input :description
-						= f.input :created_by_id, as: :string, disabled: true, :input_html => { :value => @issue.creator.name }
-						= f.input :notified_by_id, collection: User.all, selected: @issue.notifier
-						= f.input :equipment
-						= f.input :application
-
-		.accordion-group
-			.accordion-heading
-				%h3= link_to t('issues.treatment_fields'), '#treatment', 'data-toggle' => 'collapse', 'data-parent' => "#accordion"
-			.accordion-body.collapse#treatment	
-				.accordion-inner
-					.well
-						= f.input :action
-						= f.input :next_action
-						= f.input :detailed_cause
-						= f.input :start_time, as: :datepicker
-						= f.input :end_time, as: :datepicker
-
-		.accordion-group
-			.accordion-heading
-				%h3= link_to t('issues.manager_fields'), '#manager', 'data-toggle' => 'collapse', 'data-parent' => "#accordion"
-			.accordion-body.collapse#manager
-				.accordion-inner
-					.well
-						= f.input :closure_date, as: :datepicker
-						= f.input :detection, collection: Issue::DETECTIONS, selected: @issue.detection, prompt: t('helpers.words.choose')
-						= f.input :app_status, collection: Issue::APP_STATUSES, selected: @issue.app_status, prompt: t('helpers.words.choose')
-						= f.input :category_id, collection: Category.all, selected: @issue.category, prompt: t('helpers.words.choose')
-						= f.input :problem
+	.well
+		= f.input :last_name
+		= f.input :first_name
+		= f.input :email
+		= f.input :password
+		= f.input :password_confirmation
+		= f.input :admin if current_user.admin
 
 	.form_actions
 		= f.button :submit
-		= link_to t('helpers.submit.cancel'), issues_path, :class => 'btn'
+		= link_to t('helpers.submit.cancel'), :back, :class => 'btn'
 

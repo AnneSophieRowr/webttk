@@ -14,6 +14,8 @@ fr:
         last_name: 'Nom'
         first_name: 'Prénom'
         password: 'Mot de passe'
+        password_confirmation: 'Confirmation du mot de passe'
+        admin: 'Admin?'
       issue:
         status_id: "Statut"
         report_date: "Date d'ouverture"

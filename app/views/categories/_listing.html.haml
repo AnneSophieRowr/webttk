@@ -1,5 +1,7 @@
-- unless categories.empty?
+- if categories.empty?
+	= t('categories.empty')
 
+- else
 	.pull-left.paginate
 		= [categories.total_count.to_s, t('model.category').downcase].join(" ")
 	= paginate categories

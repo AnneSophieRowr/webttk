@@ -1,5 +1,7 @@
-- unless statuses.empty?
+- if statuses.empty?
+	= t('statuses.empty')
 
+- else
 	.pull-left.paginate
 		= [statuses.total_count.to_s, t('model.status').downcase].join(" ")
 	= paginate statuses

@@ -3,7 +3,8 @@ Webttk::Application.routes.draw do
 
   root 'issues#index'
 
-	get 'home/search'
+	get 'generic/search'
+	get 'generic/filter'
 
   resources :statuses
   resources :issues

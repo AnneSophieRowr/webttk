@@ -9,9 +9,24 @@ class Issue < ActiveRecord::Base
 
 	DETECTIONS = %w[Reactif Proactif]
 	APP_STATUSES = %w[OK Down]
+	SEARCH_FIELDS = %w[report_date description equipment application]
 
 	def label
-		"#{description} - #{status.name}"
+		"#{description.truncate(25, :omission => "...")} - #{status.name}"
+	end
+
+	class << self
+		def by_status(status)
+			status == '0' ? all  : where(:status_id => status)
+		end
+
+		def by_category(category)
+			category == '0' ? all  : where(:category_id => category)
+		end
+
+		def by_user(user)
+			user == '0' ? all : where(:created_by_id => user)
+		end
 	end
 
 end
