@@ -16,6 +16,9 @@ fr:
     status: "Statut(s)"
     category: "Catégorie(s)"
     user: "Utilisateur(s)"
+    stat: "Statistique(s)"
+  statistics:
+    list: "Statistiques"
   users:
     list: "Utilisateurs"
     new: "Créer un utilisateur"
@@ -53,13 +56,16 @@ fr:
     action: "Action"
     next_action: "Prochaine action"
     detailed_cause: "Cause détaillée"
-    start_date: "Date de début"
-    end_date: "Date de fin"
+    start_time: "Date de début"
+    end_time: "Date de fin"
+    duration1: "Durée 1"
+    duration2: "Durée 2"
     manager_fields: "Champs manager"
     closure_date: "Date de clotûre"
     detection: "Détection"
     app_status: "Statut de l'application"
     category_id: "Catégorie"
+    category: "Catégorie"
     problem: "Problème"
     mine: "Mes tickets"
   statuses:

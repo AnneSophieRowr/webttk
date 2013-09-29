@@ -36,6 +36,11 @@
 		%dd= @issue.start_time
 		%dt= t('issues.end_time')
 		%dd= @issue.end_time
+		%br
+		%dt= t('issues.duration1')
+		%dd= duration(@issue.start_time, @issue.end_time) unless @issue.start_time.nil?
+		%dt= t('issues.duration2')
+		%dd= duration(@issue.report_date, @issue.closure_date) 
 
 .well
 	%dl.dl-horizontal

@@ -11,8 +11,19 @@ class Issue < ActiveRecord::Base
 	APP_STATUSES = %w[OK Down]
 	SEARCH_FIELDS = %w[report_date description equipment application]
 
+	scope :this_year, where('report_date between ? and ?', DateTime.now - 1.year, DateTime.now)
+
 	def label
 		"#{description.truncate(25, :omission => "...")} - #{status.name}"
+	end
+
+	def duration1
+		time = 'test'
+		unless start_time.nil?
+			end_time = Time.now if end_time.nil?
+			time = distance_of_time_in_words(start_time, end_time)
+		end
+		return time
 	end
 
 	class << self

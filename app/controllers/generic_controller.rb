@@ -35,12 +35,4 @@ class GenericController < ApplicationController
     render :partial => "#{klass}/listing", :locals => { klass.to_sym => @objects }, :layout => false
   end   
 
-  def reset
-    klass = params[:format]
-    model = klass.singularize.camelize.constantize
-    @objects = model.order(model.sort_column).page(params[:page])
-
-    render :partial => "admin/#{klass}/listing", :locals => { klass.to_sym => @objects }, :layout => false
-  end   
-
 end
