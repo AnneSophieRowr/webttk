@@ -1,7 +1,7 @@
 class Statistic
 
-	def self.stat1
-		Issue.this_year.count(:group=>"MONTH(report_date)")
+	def self.by_month
+		Issue.this_year.count(:group=>"MONTHNAME(report_date)")
 	end
 
 end

@@ -19,7 +19,7 @@
 
 $(document).ready(function(){
 
-	if ($("#chart") != []) {
+	if ($("#chart").length != 0) {
 		load_chart();
 	}
 
@@ -100,16 +100,14 @@ $(document).ready(function(){
 
 function load_chart()
 {
-	options = {scaleOverride: true, scaleSteps: 15, scaleStepWidth: 0.1, scaleStartValue: 56} 
 	var ctx = $("#chart").get(0).getContext("2d");
 	var myNewChart = new Chart(ctx);
 	var url_parts = window.location.href.split('/')
 	var id = url_parts[url_parts.length - 1]
-	$.getJSON(
-		'/statistics/chart_data',
-		{id: id}, 
-		function(data) {
-			new myNewChart.Bar(data, options);
+	$.getJSON( '/statistics/chart_data',
+		{id: id},
+		function(chart_data) {
+			new myNewChart.Bar(chart_data.data, chart_data.options);
 		}   
 	);  
 }

@@ -5,9 +5,9 @@ Webttk::Application.routes.draw do
 
 	get 'generic/search'
 	get 'generic/filter'
-	get '/statistics/:id', to: 'statistics#show'
-	get '/statistics/chart_data'
+	get '/statistics/chart_data', to: 'statistics#chart_data', as: :chart_data_statistic
+	get '/statistics/:id', to: 'statistics#show', as: :statistic
 
-  resources :statuses, :issues, :categories, :users, :statistics
+  resources :statuses, :issues, :categories, :users
 
 end

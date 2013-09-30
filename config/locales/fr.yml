@@ -19,6 +19,7 @@ fr:
     stat: "Statistique(s)"
   statistics:
     list: "Statistiques"
+    by_month: "Nombre d'incidents par mois"
   users:
     list: "Utilisateurs"
     new: "Créer un utilisateur"
