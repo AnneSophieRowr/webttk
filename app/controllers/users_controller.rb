@@ -28,6 +28,12 @@ class UsersController < ApplicationController
   end
 
   def update
+
+		if params[:user][:password].blank?
+			params[:user].delete("password")
+			params[:user].delete("password_confirmation")
+		end
+
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to users_path, notice: t('users.update') }

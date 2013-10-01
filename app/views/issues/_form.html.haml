@@ -11,7 +11,7 @@
 						= f.input :report_date, as: :datepicker
 						= f.input :description
 						= f.input :created_by_id, as: :string, disabled: true, :input_html => { :value => @issue.creator.name }
-						= f.input :notified_by_id, collection: User.all, selected: @issue.notifier
+						= f.input :notified_by_id, collection: User.all.order('last_name asc'), selected: @issue.notifier.nil? ? current_user : @issue.notifier
 						= f.input :equipment
 						= f.input :application
 
