@@ -19,7 +19,7 @@
 				%tr{href: url_for(issue)}
 					%td= issue.report_date 
 					%td= issue.status.name 
-					%td= issue.description.truncate(25, :omission => "...").html_safe unless issue.description.nil?
+					%td= issue.description.truncate(60, :omission => "...").html_safe unless issue.description.nil?
 					%td= issue.creator.name
 					%td= issue.equipment
 					%td= issue.application
