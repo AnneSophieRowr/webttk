@@ -9,18 +9,18 @@
 
 .well
 	%dl.dl-horizontal
-		%dt= t('issues.status')
+		%dt= t('issues.status_id')
 		%dd= @issue.status.name
 		%dt= t('issues.report_date')
 		%dd= @issue.report_date
 		%dt= t('issues.description')
 		%dd= @issue.description.html_safe  
 		%dt= t('issues.creator')
-		%dd= @issue.creator.name
+		%dd= link_to @issue.creator.name, @issue.creator
 		%dt= t('issues.notifier')
-		%dd= @issue.notifier.name
-		%dt= t('issues.equipment')
-		%dd= @issue.equipment
+		%dd= link_to @issue.notifier.name, @issue.notifier
+		%dt= t('issues.device_id')
+		%dd= link_to @issue.device.name, @issue.device
 		%dt= t('issues.application')
 		%dd= @issue.application
 
@@ -51,7 +51,7 @@
 		%dt= t('issues.app_status')
 		%dd= @issue.app_status
 		%dt= t('issues.category')
-		%dd= @issue.category.name unless @issue.category.nil?
+		%dd= link_to(@issue.category.name, @issue.category) unless @issue.category.nil?
 		%dt= t('issues.problem')
 		%dd= @issue.problem
 

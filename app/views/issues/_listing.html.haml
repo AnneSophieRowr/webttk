@@ -11,7 +11,7 @@
 			%th= t('issues.status')
 			%th= t('issues.description')
 			%th= t('issues.creator')
-			%th= t('issues.equipement')
+			%th= t('issues.device_id')
 			%th= t('issues.application')
 			%th
 		%tbody
@@ -21,7 +21,7 @@
 					%td= issue.status.name 
 					%td= issue.description.truncate(60, :omission => "...").html_safe unless issue.description.nil?
 					%td= issue.creator.name
-					%td= issue.equipment
+					%td= issue.device.name unless issue.device.nil?
 					%td= issue.application
 					%td
 						= link_to edit_issue_path(issue), :class => 'btn btn-small', :title => t('issues.edit').html_safe do

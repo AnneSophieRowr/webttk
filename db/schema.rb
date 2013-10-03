@@ -11,11 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130926095048) do
+ActiveRecord::Schema.define(version: 20131003121021) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "devices", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "ip"
+    t.boolean  "saved"
+    t.string   "os"
+    t.string   "infrastructure"
+    t.integer  "user_id"
+    t.string   "environment"
+    t.string   "virtual"
+    t.integer  "hypervisor_id"
+    t.string   "service"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -26,7 +42,6 @@ ActiveRecord::Schema.define(version: 20130926095048) do
     t.text     "description",                null: false
     t.integer  "created_by_id",              null: false
     t.integer  "notified_by_id",             null: false
-    t.string   "equipment",                  null: false
     t.string   "application",                null: false
     t.text     "action"
     t.text     "next_action"
@@ -40,6 +55,7 @@ ActiveRecord::Schema.define(version: 20130926095048) do
     t.text     "problem"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "device_id",                  null: false
   end
 
   create_table "statuses", force: true do |t|

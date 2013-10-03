@@ -1,0 +1,19 @@
+= simple_form_for @device, :html => {:class => 'form-horizontal'} do |f|
+
+	.well
+		= f.input :name
+		= f.input :description
+		= f.input :ip
+		= f.input :saved
+		= f.input :os, collection: Device::OS, selected: @device.os, prompt: t('helpers.words.choose')
+		= f.input :infrastructure, collection: Device::INFRASTRUCTURES, selected: @device.infrastructure, prompt: t('helpers.words.choose')
+		= f.input :user_id, collection: User.all, selected: @device.user, prompt: t('helpers.words.choose')
+		= f.input :environment, collection: Device::ENVIRONMENTS, selected: @device.environment, prompt: t('helpers.words.choose')
+		= f.input :virtual, collection: Device::VIRTUAL, selected: @device.virtual, prompt: t('helpers.words.choose')
+		= f.input :hypervisor_id, collection: Device.vms, selected: @device.hypervisor, prompt: t('helpers.words.choose')
+		= f.input :service
+
+	.form_actions
+		= f.button :submit
+		= link_to t('helpers.submit.cancel'), :back, :class => 'btn'
+

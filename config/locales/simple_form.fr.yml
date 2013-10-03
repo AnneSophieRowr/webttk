@@ -21,7 +21,6 @@ fr:
         report_date: "Date d'ouverture"
         created_by_id: "Créateur"
         notified_by_id: "Rapporteur"
-        equipment: "Equipement"
         application: "Application"
         action: "Action"
         next_action: "Prochaine action"
@@ -33,6 +32,17 @@ fr:
         app_status: "Statut de l'application"
         category_id: "Catégorie"
         problem: "Problème"
+        device_id: "Equipement"
+      device:
+        os: "Système d'exploitation"
+        ip: "Adresse IP"
+        saved: "Sauvegardé?"
+        infrastucture: "Type infrastructure"
+        user_id: "Responsable"
+        environment: "Environnement"
+        virtual: "Virtuel / Physique"
+        hypervisor_id: "Hyperviseur"
+        service: "Service"
 
     #     edit:
     #       email: 'E-mail.'

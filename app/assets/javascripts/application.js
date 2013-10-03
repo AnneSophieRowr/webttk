@@ -37,6 +37,12 @@ $(document).ready(function(){
 		},  
 	},'#users td');
 
+	$(document).on({
+	 click: function(){ 
+			window.location = $(this).parent().attr("href");
+		},  
+	},'#devices td');
+
   //searchbars
   $(".searchbar").attr("autocomplete", "off");
 

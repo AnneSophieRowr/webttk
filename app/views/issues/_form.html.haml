@@ -12,7 +12,7 @@
 						= f.input :description
 						= f.input :created_by_id, as: :string, disabled: true, :input_html => { :value => @issue.creator.name }
 						= f.input :notified_by_id, collection: User.all.order('last_name asc'), selected: @issue.notifier.nil? ? current_user : @issue.notifier
-						= f.input :equipment
+						= f.input :device_id, collection: Device.all.order('name asc'), selected: @issue.device
 						= f.input :application
 
 		.accordion-group

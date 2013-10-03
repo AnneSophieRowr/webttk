@@ -1,0 +1,31 @@
+- if devices.empty?
+	= t('devices.empty')
+
+- else
+	.pull-left.paginate
+		= [devices.total_count.to_s, t('model.device').downcase].join(" ")
+	= paginate devices
+	%table.table.table-striped
+		%tr
+			%th= t('devices.name')
+			%th= t('devices.description')
+			%th= t('devices.service')
+			%th= t('devices.infrastructure')
+			%th= t('devices.user_id')
+			%th
+		%tbody
+			- devices.each do |device|
+				%tr{href: url_for(device)}
+					%td= device.name.html_safe unless device.name.nil?
+					%td= device.description unless device.description.nil?
+					%td= device.service unless device.service.nil?
+					%td= device.infrastructure
+					%td= device.user.name
+					%td
+						= link_to edit_device_path(device), :class => 'btn btn-small', :title => t('devices.edit').html_safe do
+							%i.icon-edit
+						= link_to device_path(device), :class => 'btn btn-small', :title => t('devices.destroy').html_safe, method: :delete, data: { confirm: t('devices.confirm_destroy').html_safe } do
+							%i.icon-remove
+
+= paginate devices
+

@@ -54,7 +54,7 @@ class IssuesController < ApplicationController
 	end
 
 	def issue_params
-		params.require(:issue).permit(:status_id, :report_date, :description, :created_by_id, :notified_by_id, :equipment, :application, :action, :next_action, :detailed_cause, :start_time, :end_time, :closure_date, :detection, :app_status, :category_id, :problem)
+		params.require(:issue).permit(:status_id, :report_date, :description, :created_by_id, :notified_by_id, :device_id, :application, :action, :next_action, :detailed_cause, :start_time, :end_time, :closure_date, :detection, :app_status, :category_id, :problem)
 	end
 
 	def sort_column
