@@ -10,6 +10,7 @@ class DevicesController < ApplicationController
   end
 
 	def show
+		@device = @device.decorate	
 	end
 
   def edit

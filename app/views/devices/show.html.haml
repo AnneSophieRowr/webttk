@@ -25,6 +25,7 @@
 		%dd= @device.service
 		%dt= t('devices.user_id')
 		%dd= @device.user.name
+		= @device.virtual_test
 		- if @device.hypervisor.nil? && !@device.vms.empty?
 			%dt= t('devices.vms')
 			- @device.vms.each do |vm|
