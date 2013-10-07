@@ -90,6 +90,7 @@ fr:
     environment: "Environnement"
     virtual: "Virtuel / Physique?"
     hypervisor_id: "Hyperviseur"
+    vms: "VMS"
     service: "Service"
   statuses:
     list: "Statuts"

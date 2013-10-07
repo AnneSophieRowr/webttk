@@ -19,20 +19,13 @@
 		%dd= @device.os
 		%dt= t('devices.infrastructure')
 		%dd= @device.infrastructure
-		%dt= t('devices.virtual')
-		%dd= @device.virtual
 		%dt= t('devices.service')
 		%dd= @device.service
 		%dt= t('devices.user_id')
 		%dd= @device.user.name
-		= @device.virtual_test
-		- if @device.hypervisor.nil? && !@device.vms.empty?
-			%dt= t('devices.vms')
-			- @device.vms.each do |vm|
-				%dd= link_to vm.name, vm
-		- else
-			%dt= t('devices.hypervisor_id')
-			%dd= @device.hypervisor.name
+		%dt= t('devices.virtual')
+		%dd= @device.virtual
+		= @device.virtual_detailed
 
 
 = link_to t('helpers.submit.back').html_safe, devices_path, :class => 'btn'
