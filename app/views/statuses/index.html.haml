@@ -1,16 +1,14 @@
-%h2.pull-left= t('statuses.list').html_safe
-.bartitle
-	.btn-toolbar.text-right
-		.btn-group
-			= link_to new_status_path, :class => 'btn', :title => t('statuses.new').html_safe do
-				%i.icon-plus
+.bar-title
+  %h2.pull-left= t('model.status')
+  .btn-group.pull-right
+    = link_to new_status_path, class: 'btn btn-default', title: t('status.new') do
+      %span.fa.fa-plus
 
-	.well.form-actions
-		%form.form-search
-			= text_field_tag :q, nil, :placeholder => t('statuses.search').html_safe, :class => 'searchbar pull-left', 'data-provide' => 'typeahead', :klass => "statuses"
+%form.well.form-inline.search
+  .row
+    .col-xs-3
+      = text_field_tag :q, nil, placeholder: t('status.search'), class: 'form-control', 'data-provide' => 'typeahead', klass: "statuses"
 
 #statuses.partial
-	= render :partial => 'listing', :locals => {:statuses => @objects}
-
-
+  = render :partial => 'listing', :locals => {:statuses => @objects}
 

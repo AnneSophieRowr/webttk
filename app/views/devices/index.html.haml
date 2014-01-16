@@ -1,28 +1,28 @@
-%h2.pull-left= t('devices.list').html_safe
-.bartitle
-	.btn-toolbar.text-right
-		.btn-group
-			= link_to new_device_path, :class => 'btn', :title => t('devices.new').html_safe do
-				%i.icon-plus
+.bar-title
+  %h2.pull-left= t('model.device')
+  .btn-group.pull-right
+    = link_to new_device_path, class: 'btn btn-default', title: t('device.new') do
+      %span.fa.fa-plus
 
-	.well.form-actions
-		%form.form-search
-			= text_field_tag :q, nil, :placeholder => t('devices.search').html_safe, :class => 'searchbar pull-left', 'data-provide' => 'typeahead', :klass => "devices"
-			%label{:for => 'user'}
-				= t('devices.user_id')
-			= select_tag :user, options_for_select(users), :class => 'large filter', :klass => 'devices'
-			%label{:for => 'infrastructure'} 
-				= t('devices.infrastructure')
-			= select_tag :infrastructure, options_for_select(infrastructures), :class => 'medium filter', :klass => 'devices'
-			%label{:for => 'virtual'}
-				= t('devices.virtual')
-			= select_tag :virtual, options_for_select(virtual), :class => 'medium filter', :klass => 'devices'
-			%label{:for => 'os'}
-				= t('devices.os')
-			= select_tag :os, options_for_select(os), :class => 'medium filter', :klass => 'devices'
+%form.well.form-inline.search
+  .row
+    .col-xs-3
+      = text_field_tag :q, nil, placeholder: t('device.search'), class: 'form-control', 'data-provide' => 'typeahead', klass: "devices"
+    .form-group
+      %label= t('device.user')
+      = select_tag :user, options_for_select(users), class: 'filter form-control', klass: 'devices'
+    .form-group
+      %label= t('device.infrastructure')
+      = select_tag :infrastructure, options_for_select(infrastructures), class: 'filter form-control', klass: 'devices'
+
+%form.well.form-inline.search
+  .row
+    .form-group
+      %label= t('device.virtual')
+      = select_tag :virtual, options_for_select(virtual), class: 'filter form-control', klass: 'devices'
+    .form-group
+      %label= t('device.os')
+      = select_tag :os, options_for_select(os), class: 'filter form-control', klass: 'devices'
 
 #devices.partial
-	= render :partial => 'listing', :locals => {:devices => @objects}
-
-
-
+  = render :partial => 'listing', :locals => {:devices => @objects}

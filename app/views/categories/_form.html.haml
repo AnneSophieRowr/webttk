@@ -1,8 +1,8 @@
-= simple_form_for @category, :html => {:class => 'form-horizontal well'} do |f|
-	= f.input :name
-	= f.input :description
+= simple_form_for @category, :html => {class: 'form-horizontal'} do |f|
 
-	.form_actions
-		= f.button :submit
-		= link_to t('helpers.submit.cancel').html_safe, :back, :class => 'btn'
+  = f.input :name
+  = f.input :description
 
+  .form_actions
+    = f.button :submit
+    = link_to t('helpers.submit.cancel'), :back, :class => 'btn btn-default'

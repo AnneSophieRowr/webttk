@@ -1,49 +1,66 @@
 //= require jquery.ui.datepicker
 //= require_self
 //= require_tree .
+//= require_tree ./libs
 
-@import "bootstrap"
+body 
+  padding: 20px
 
 #issues, #users, #devices
-	tr:hover td
-		cursor: pointer
-		background-color: #e3e3e3 !important
+  tr:hover td
+    cursor: pointer
+    background-color: #e3e3e3 !important
 
 div.boolean
-	margin-top: 10px
+  margin-top: 10px
 input.boolean
-	float: right
-	margin-right: 90%
+  float: right
+  margin-right: 90%
+
+.bar-title
+  height: 70px
+.btn-group
+  position: relative
+  top: 50%
+  margin-top: -17px
+
+form.search
+  label
+    padding-right: 15px
+  .form-group
+    margin: 0 20px 
 
 .clear
-	clear: both
+  clear: both
 
 .signin
-	width: 600px
-	position: relative
-	left: 25% 
-	margin-top: 30px
-	h2, form  
-		position: relative
-		left: 25%
-	.button
-		margin-top: 20px
+  width: 600px
+  position: relative
+  left: 25% 
+  margin-top: 30px
+  h2  
+    text-align: center
+    margin-bottom: 40px
+  label
+    margin-left: 60px
+  .btn 
+    width: 100%
 
 .alert
-	margin: 0
+  margin: 0
 
 .paginate
-	margin: 0 0 10px 10px
+  margin: 0 0 10px 10px
 
 .form_actions
-	margin-top: 20px
+  margin: 20px 0
 
 a.current 
-	padding-right: 20px
-	background-repeat: no-repeat
-	background-position: right center
-	&.asc
-		background-image: url('up.png')
-	&.desc
-		background-image: url('down.png')
+  padding-right: 20px
+  background-repeat: no-repeat
+  background-position: right center
+  &.asc
+    background-image: url('up.png')
+  &.desc
+    background-image: url('down.png')
 

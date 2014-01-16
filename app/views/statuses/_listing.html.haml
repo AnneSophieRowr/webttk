@@ -1,25 +1,25 @@
 - if statuses.empty?
-	= t('statuses.empty')
+  = t('status.empty')
 
 - else
-	.pull-left.paginate
-		= [statuses.total_count.to_s, t('model.status').downcase].join(" ")
-	= paginate statuses
-	%table.table.table-striped
-		%tr
-			%th= t('statuses.name')
-			%th= t('statuses.description')
-			%th
-		%tbody
-			- statuses.each do |status|
-				%tr
-					%td= status.name.html_safe unless status.name.nil?
-					%td= status.description unless status.description.nil?
-					%td
-						= link_to edit_status_path(status), :class => 'btn btn-small', :title => t('statuses.edit').html_safe do
-							%i.icon-edit
-						= link_to status_path(status), :class => 'btn btn-small', :title => t('statuses.destroy').html_safe, method: :delete, data: { confirm: t('statuses.confirm_destroy').html_safe } do
-							%i.icon-remove
+  .pull-left.paginate
+    = [statuses.total_count.to_s, t('model.status').downcase].join(" ")
+    = paginate statuses
 
-= paginate statuses
+  %table.table.table-striped
+    %tr
+      %th= t('status.name')
+      %th= t('status.description')
+      %th
+    %tbody
+      - statuses.each do |status|
+        %tr{href: url_for(status)}
+          %td= status.name
+          %td= status.description.truncate(40, :omission => "...") unless status.description.nil?
+          %td
+            = link_to edit_status_path(status), class: 'btn btn-default', title: t('status.edit') do
+              %span.fa.fa-edit
+            = link_to status_path(status), class: 'btn btn-default', title: t('status.destroy'), method: :delete, data: { confirm: t('status.confirm_destroy') } do
+              %span.fa.fa-trash-o
 
+    = paginate statuses

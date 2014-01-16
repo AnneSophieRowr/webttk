@@ -18,11 +18,10 @@ fr:
     user: "Utilisateur(s)"
     statistic: "Statistique(s)"
     device: "Equipement(s)"
-  statistics:
-    list: "Statistiques"
+  statistic:
     by_month: "Nombre d'incidents par mois"
-  users:
-    list: "Utilisateurs"
+  user:
+    show: "Voir l'utilisateur"
     new: "Créer un utilisateur"
     create: "Utilisateur créé avec succès"
     edit: "Mettre à jour un utilisateur"
@@ -37,8 +36,8 @@ fr:
     last_sign_in_at: "Date de dernière connexion"
     last_sign_in_ip: "Adresse IP de dernière connexion"
     sign_in_count: "Nombre de connexions"
-  issues:
-    list: "Tickets"
+  issue:
+    show: "Voir le ticket"
     new: "Créer un ticket"
     create: "Ticket créé avec succès"
     edit: "Mettre à jour un ticket"
@@ -48,7 +47,7 @@ fr:
     search: "Rechercher un ticket..."
     empty: "Aucun ticket"
     required_fields: "Champs obligatoires"
-    status_id: "Statut"
+    status: "Statut"
     report_date: "Date d'ouverture"
     creator: "Créateur"
     notifier: "Détecteur"
@@ -65,13 +64,13 @@ fr:
     closure_date: "Date de clotûre"
     detection: "Détection"
     app_status: "Statut de l'application"
-    category_id: "Catégorie"
+    category: "Catégorie"
     category: "Catégorie"
     problem: "Problème"
-    device_id: "Equipement"
+    device: "Equipement"
     mine: "Mes tickets"
-  devices:
-    list: "Equipements"
+  device:
+    show: "Montrer l'équipement"
     new: "Créer un équipement"
     create: "Equipement créé avec succès"
     edit: "Mettre à jour cet équipement"
@@ -86,14 +85,13 @@ fr:
     os: "Système d'exploitation"
     saved: "Sauvegardé?"
     infrastucture: "Type infrastructure"
-    user_id: "Responsable"
+    user: "Responsable"
     environment: "Environnement"
     virtual: "Virtuel / Physique?"
-    hypervisor_id: "Hyperviseur"
+    hypervisor: "Hyperviseur"
     vms: "VMS"
     service: "Service"
-  statuses:
-    list: "Statuts"
+  status:
     new: "Créer un statut"
     create: "Statut créé avec succès"
     edit: "Mettre à jour ce statut"
@@ -104,8 +102,7 @@ fr:
     empty: "Aucun statut"
     name: "Nom"
     description: "Description"
-  categories:
-    list: "Catégories"
+  category:
     new: "Créer une catégorie"
     create: "Catégorie créée avec succès"
     edit: "Mettre à jour une catégorie"

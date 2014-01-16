@@ -1,30 +1,31 @@
-%legend.bartitle
-	%h2.pull-left= @user.name.html_safe 
-	.btn-toolbar.text-right 
-		.btn-group
-			= link_to edit_user_path(@user), :class => 'btn', :title => t('users.edit') do
-				%i.icon-edit
-			= link_to @user, :class => 'btn', :title => t('users.destroy'), method: :delete, data: { confirm: t('users.confirm_destroy') } do
-				%i.icon-remove
+.bar-title
+  %h2.pull-left= @user.name
+  .btn-group.pull-right
+    = link_to edit_user_path(@user), class: 'btn btn-default', title: t('user.edit') do
+      %span.fa.fa-edit
+    = link_to user_path(@user), class: 'btn btn-default', title: t('user.destroy'), method: :delete, data: { confirm: t('user.confirm_destroy') } do
+      %span.fa.fa-trash-o
 
 .well
-	%dl.dl-horizontal
-		%dt= t('users.last_name')
-		%dd= @user.last_name
-		%dt= t('users.first_name')
-		%dd= @user.first_name
-		%dt= t('users.email')
-		%dd= @user.email
-		%dt= t('users.admin')
-		%dd= @user.admin? 
+  %dl.dl-horizontal
+    %dt= t('user.last_name')
+    %dd= @user.last_name
+    %dt= t('user.first_name')
+    %dd= @user.first_name
+    %dt= t('user.email')
+    %dd= @user.email
+    %dt= t('user.admin')
+    %dd= @user.admin? 
 
 .well
-	%dl.dl-horizontal
-		%dt= t('users.last_sign_in_at')
-		%dd= @user.last_sign_in_at
-		%dt= t('users.last_sign_in_ip')
-		%dd= @user.last_sign_in_ip
-		%dt= t('users.sign_in_count')
-		%dd= @user.sign_in_count
+  %dl.dl-horizontal
+    %dt= t('user.last_sign_in_at')
+    %dd= @user.last_sign_in_at
+    %dt= t('user.last_sign_in_ip')
+    %dd= @user.last_sign_in_ip
+    %dt= t('user.sign_in_count')
+    %dd= @user.sign_in_count
 
-= link_to t('helpers.submit.back').html_safe, users_path, :class => 'btn'
+= link_to t('helpers.submit.back'), users_path, :class => 'btn btn-default'
+
+

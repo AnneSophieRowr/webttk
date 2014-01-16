@@ -1,31 +1,29 @@
-%legend.bartitle
-	%h2.pull-left= @device.name.html_safe 
-	.btn-toolbar.text-right 
-		.btn-group
-			= link_to edit_device_path(@device), :class => 'btn', :title => t('devices.edit') do
-				%i.icon-edit
-			= link_to @device, :class => 'btn', :title => t('devices.destroy'), method: :delete, data: { confirm: t('devices.confirm_destroy') } do
-				%i.icon-remove
+.bar-title
+  %h2.pull-left= @device.name
+  .btn-group.pull-right
+    = link_to edit_device_path(@device), class: 'btn btn-default', title: t('device.edit') do
+      %span.fa.fa-edit
+    = link_to device_path(@device), class: 'btn btn-default', title: t('device.destroy'), method: :delete, data: { confirm: t('device.confirm_destroy') } do
+      %span.fa.fa-trash-o
 
 .well
-	%dl.dl-horizontal
-		%dt= t('devices.description')
-		%dd= @device.description
-		%dt= t('devices.ip')
-		%dd= @device.ip
-		%dt= t('devices.saved')
-		%dd= @device.saved
-		%dt= t('devices.os')
-		%dd= @device.os
-		%dt= t('devices.infrastructure')
-		%dd= @device.infrastructure
-		%dt= t('devices.service')
-		%dd= @device.service
-		%dt= t('devices.user_id')
-		%dd= @device.user.name
-		%dt= t('devices.virtual')
-		%dd= @device.virtual
-		= @device.virtual_detailed
+  %dl.dl-horizontal
+    %dt= t('device.description')
+    %dd= @device.description
+    %dt= t('device.ip')
+    %dd= @device.ip
+    %dt= t('device.saved')
+    %dd= @device.saved
+    %dt= t('device.os')
+    %dd= @device.os
+    %dt= t('device.infrastructure')
+    %dd= @device.infrastructure
+    %dt= t('device.service')
+    %dd= @device.service
+    %dt= t('device.device')
+    %dd= @device.device.name
+    %dt= t('device.virtual')
+    %dd= @device.virtual
+    = @device.virtual_detailed
 
-
-= link_to t('helpers.submit.back').html_safe, devices_path, :class => 'btn'
+= link_to t('helpers.submit.back'), devices_path, :class => 'btn btn-default'

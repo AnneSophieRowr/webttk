@@ -1,33 +1,36 @@
 - if issues.empty?
-	= t('issues.empty')
+  = t('issue.empty')
 
 - else
-	.pull-left.paginate
-		= [issues.total_count.to_s, t('model.issue').downcase].join(" ")
-	= paginate issues
-	%table.table.table-striped
-		%tr
-			%th= t('issues.report_date')
-			%th= t('issues.status')
-			%th= t('issues.description')
-			%th= t('issues.creator')
-			%th= t('issues.device_id')
-			%th= t('issues.application')
-			%th
-		%tbody
-			- issues.each do |issue|
-				%tr{href: url_for(issue)}
-					%td= issue.report_date 
-					%td= issue.status.name 
-					%td= issue.description.truncate(60, :omission => "...").html_safe unless issue.description.nil?
-					%td= issue.creator.name
-					%td= issue.device.name unless issue.device.nil?
-					%td= issue.application
-					%td
-						= link_to edit_issue_path(issue), :class => 'btn btn-small', :title => t('issues.edit').html_safe do
-							%i.icon-edit
-						= link_to issue_path(issue), :class => 'btn btn-small', :title => t('issues.destroy').html_safe, method: :delete, data: { confirm: t('issues.confirm_destroy').html_safe } do
-							%i.icon-remove
+  .pull-left.paginate
+    = [issues.total_count.to_s, t('model.issue').downcase].join(" ")
+    = paginate issues
 
-= paginate issues
+  %table.table.table-striped
+    %tr
+      %th= t('issue.report_date')
+      %th= t('issue.status')
+      %th= t('issue.description')
+      %th= t('issue.creator')
+      %th= t('issue.device')
+      %th= t('issue.application')
+      %th
+    %tbody
+      - issues.each do |issue|
+        %tr
+          %td= issue.report_date 
+          %td= issue.status.name 
+          %td= issue.description.truncate(40, :omission => "...") unless issue.description.nil?
+          %td= issue.creator.name
+          %td= issue.device.name unless issue.device.nil?
+          %td= issue.application
+          %td
+            = link_to issue, class: 'btn btn-default', title: t('issue.show') do
+              %span.fa.fa-eye
+            = link_to edit_issue_path(issue), class: 'btn btn-default', title: t('issue.edit') do
+              %span.fa.fa-edit
+            = link_to issue_path(issue), class: 'btn btn-default', title: t('issue.destroy'), method: :delete, data: { confirm: t('issue.confirm_destroy') } do
+              %span.fa.fa-trash-o
+
+    = paginate issues
 

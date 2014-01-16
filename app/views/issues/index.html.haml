@@ -1,25 +1,25 @@
-%h2.pull-left= t('issues.list')
-.bartitle
-	.btn-toolbar.text-right
-		.btn-group
-			= link_to new_issue_path, :class => 'btn', :title => t('issues.new') do
-				%i.icon-plus
+.bar-title
+  %h2.pull-left= t('model.issue')
+  .btn-group.pull-right
+    = link_to new_issue_path, class: 'btn btn-default', title: t('issue.new') do
+      %span.fa.fa-plus
 
-	.well.form-actions
-		%form.form-search
-			= text_field_tag :q, nil, :placeholder => t('issues.search').html_safe, :class => 'searchbar pull-left', 'data-provide' => 'typeahead', :klass => "issues"
-			%label{:for => 'status'} 
-				= t('issues.status_id')
-			= select_tag :status, options_for_select(statuses), :class => 'large filter', :klass => 'issues'
-			%label{:for => 'category'} 
-				= t('issues.category_id')
-			= select_tag :category, options_for_select(categories), :class => 'large filter', :klass => 'issues'
-			%label{:for => 'user'}
-				= t('issues.mine')
-			= check_box_tag :user, current_user.id, false,  { :class => 'filter', :klass => 'issues' }
+%form.well.form-inline.search
+  .row
+    .col-xs-3
+      = text_field_tag :q, nil, placeholder: t('issue.search'), class: 'form-control', 'data-provide' => 'typeahead', klass: "issues"
+    .form-group
+      %label= t('issue.status')
+      = select_tag :status, options_for_select(statuses), class: 'filter form-control', klass: 'issues'
+    .form-group
+      %label= t('issue.category')
+      = select_tag :category, options_for_select(categories), class: 'filter form-control', klass: 'issues'
+    .form-group
+      %label= t('issue.mine')
+      = check_box_tag :user, current_user.id, false,  {class: 'filter', klass: 'issues'}
 
 #issues.partial
-	= render :partial => 'listing', :locals => {:issues => @objects}
+  = render :partial => 'listing', :locals => {:issues => @objects}
 
 
 

@@ -1,19 +1,16 @@
-%h2.pull-left= t('users.list').html_safe
-.bartitle
-	.btn-toolbar.text-right
-		.btn-group
-			= link_to new_user_path, :class => 'btn', :title => t('users.new').html_safe do
-				%i.icon-plus
+.bar-title
+  %h2.pull-left= t('model.user')
+  .btn-group.pull-right
+    = link_to new_user_path, class: 'btn btn-default', title: t('user.new') do
+      %span.fa.fa-plus
 
-	.well.form-actions
-		%form.form-search
-			= text_field_tag :q, nil, :placeholder => t('users.search').html_safe, :class => 'searchbar pull-left', 'data-provide' => 'typeahead', :klass => "users"
-			%label{:for => 'admin'}
-				= t('issues.admin')
-			= check_box_tag :admin, 1, false,  { :class => 'filter', :klass => 'users' }
+%form.well.form-inline.search
+  .row
+    .col-xs-3
+      = text_field_tag :q, nil, placeholder: t('user.search'), class: 'form-control', 'data-provide' => 'typeahead', klass: "users"
+    .form-group
+      %label= t('user.admin')
+      = check_box_tag :admin, 1, false,  { class: 'filter', klass: 'users' }
 
 #users.partial
-	= render :partial => 'listing', :locals => {:users => @objects}
-
-
-
+  = render :partial => 'listing', :locals => {:users => @objects}

@@ -1,31 +1,33 @@
 - if devices.empty?
-	= t('devices.empty')
+  = t('device.empty')
 
 - else
-	.pull-left.paginate
-		= [devices.total_count.to_s, t('model.device').downcase].join(" ")
-	= paginate devices
-	%table.table.table-striped
-		%tr
-			%th= t('devices.name')
-			%th= t('devices.description')
-			%th= t('devices.service')
-			%th= t('devices.infrastructure')
-			%th= t('devices.user_id')
-			%th
-		%tbody
-			- devices.each do |device|
-				%tr{href: url_for(device)}
-					%td= device.name.html_safe unless device.name.nil?
-					%td= device.description unless device.description.nil?
-					%td= device.service unless device.service.nil?
-					%td= device.infrastructure
-					%td= device.user.name
-					%td
-						= link_to edit_device_path(device), :class => 'btn btn-small', :title => t('devices.edit').html_safe do
-							%i.icon-edit
-						= link_to device_path(device), :class => 'btn btn-small', :title => t('devices.destroy').html_safe, method: :delete, data: { confirm: t('devices.confirm_destroy').html_safe } do
-							%i.icon-remove
+  .pull-left.paginate
+    = [devices.total_count.to_s, t('model.device').downcase].join(" ")
+    = paginate devices
 
-= paginate devices
+  %table.table.table-striped
+    %tr
+      %th= t('device.name')
+      %th= t('device.description')
+      %th= t('device.service')
+      %th= t('device.infrastructure')
+      %th= t('device.user')
+      %th
+    %tbody
+      - devices.each do |device|
+        %tr{href: url_for(device)}
+          %td= device.name unless device.name.nil?
+          %td= device.description unless device.description.nil?
+          %td= device.service unless device.service.nil?
+          %td= device.infrastructure
+          %td= device.user.name
+          %td
+            = link_to device, class: 'btn btn-default', title: t('device.show') do
+              %span.fa.fa-eye
+            = link_to edit_device_path(device), class: 'btn btn-default', title: t('device.edit') do
+              %span.fa.fa-edit
+            = link_to device_path(device), class: 'btn btn-default', title: t('device.destroy'), method: :delete, data: { confirm: t('device.confirm_destroy') } do
+              %span.fa.fa-trash-o
 
+    = paginate devices

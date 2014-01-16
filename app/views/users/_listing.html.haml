@@ -1,27 +1,29 @@
 - if users.empty?
-	= t('users.empty')
+  = t('user.empty')
 
 - else
-	.pull-left.paginate
-		= [users.total_count.to_s, t('model.user').downcase].join(" ")
-	= paginate users
-	%table.table.table-striped
-		%tr
-			%th= t('users.last_name')
-			%th= t('users.first_name')
-			%th= t('users.email')
-			%th
-		%tbody
-			- users.each do |user|
-				%tr{href: url_for(user)}
-					%td= user.last_name.capitalize
-					%td= user.first_name.capitalize
-					%td= user.email
-					%td
-						= link_to edit_user_path(user), :class => 'btn btn-small', :title => t('users.edit').html_safe do
-							%i.icon-edit
-						= link_to user_path(user), :class => 'btn btn-small', :title => t('users.destroy').html_safe, method: :delete, data: { confirm: t('users.confirm_destroy').html_safe } do
-							%i.icon-remove
+  .pull-left.paginate
+    = [users.total_count.to_s, t('model.user').downcase].join(" ")
+    = paginate users
 
-= paginate users
+  %table.table.table-striped
+    %tr
+      %th= t('user.last_name')
+      %th= t('user.first_name')
+      %th= t('user.email')
+      %th
+    %tbody
+      - users.each do |user|
+        %tr{href: url_for(user)}
+          %td= user.last_name
+          %td= user.first_name 
+          %td= user.email
+          %td
+            = link_to user, class: 'btn btn-default', title: t('user.show') do
+              %span.fa.fa-eye
+            = link_to edit_user_path(user), class: 'btn btn-default', title: t('user.edit') do
+              %span.fa.fa-edit
+            = link_to user_path(user), class: 'btn btn-default', title: t('user.destroy'), method: :delete, data: { confirm: t('user.confirm_destroy') } do
+              %span.fa.fa-trash-o
 
+    = paginate users
