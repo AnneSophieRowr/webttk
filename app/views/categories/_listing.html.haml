@@ -6,7 +6,7 @@
     = [categories.total_count.to_s, t('model.category').downcase].join(" ")
     = paginate categories
 
-  %table.table.table-striped
+  %table.table.table-striped.table-hover
     %tr
       %th= t('category.name')
       %th= t('category.description')
@@ -17,6 +17,8 @@
           %td= category.name
           %td= category.description.truncate(40, :omission => "...") unless category.description.nil?
           %td
+            = link_to category, class: 'btn btn-default', title: t('category.show') do
+              %span.fa.fa-eye
             = link_to edit_category_path(category), class: 'btn btn-default', title: t('category.edit') do
               %span.fa.fa-edit
             = link_to category_path(category), class: 'btn btn-default', title: t('category.destroy'), method: :delete, data: { confirm: t('category.confirm_destroy') } do

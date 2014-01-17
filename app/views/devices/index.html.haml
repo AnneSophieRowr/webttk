@@ -6,23 +6,15 @@
 
 %form.well.form-inline.search
   .row
-    .col-xs-3
-      = text_field_tag :q, nil, placeholder: t('device.search'), class: 'form-control', 'data-provide' => 'typeahead', klass: "devices"
-    .form-group
-      %label= t('device.user')
-      = select_tag :user, options_for_select(users), class: 'filter form-control', klass: 'devices'
-    .form-group
-      %label= t('device.infrastructure')
-      = select_tag :infrastructure, options_for_select(infrastructures), class: 'filter form-control', klass: 'devices'
+    = search_input('device')
+    = filter_input('device', 'user')
+    = filter_input('device', 'infrastructure')
 
 %form.well.form-inline.search
   .row
-    .form-group
-      %label= t('device.virtual')
-      = select_tag :virtual, options_for_select(virtual), class: 'filter form-control', klass: 'devices'
-    .form-group
-      %label= t('device.os')
-      = select_tag :os, options_for_select(os), class: 'filter form-control', klass: 'devices'
+    = filter_input('device', 'virtual')
+    = filter_input('device', 'os')
+
 
 #devices.partial
   = render :partial => 'listing', :locals => {:devices => @objects}

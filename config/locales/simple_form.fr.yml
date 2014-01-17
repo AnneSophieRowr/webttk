@@ -21,6 +21,7 @@ fr:
         report_date: "Date d'ouverture"
         created_by_id: "Créateur"
         notified_by_id: "Rapporteur"
+        followed_by_id: "Suivi par"
         device_id: "Equipement"
         application: "Application"
         action: "Action"

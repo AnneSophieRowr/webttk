@@ -4,6 +4,7 @@
 
   .collapse.navbar-collapse
     %ul.nav.navbar-nav
+      %li= link_to t('model.issue'), issues_path
       %li= link_to t('model.status'), statuses_path
       %li= link_to t('model.category'), categories_path
       %li= link_to t('model.user'), users_path

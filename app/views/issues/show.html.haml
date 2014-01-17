@@ -18,6 +18,8 @@
     %dd= link_to @issue.creator.name, @issue.creator
     %dt= t('issue.notifier')
     %dd= link_to @issue.notifier.name, @issue.notifier
+    %dt= t('issue.follower')
+    %dd= link_to @issue.follower.name, @issue.follower unless @issue.follower.nil?
     %dt= t('issue.device')
     %dd= link_to @issue.device.name, @issue.device
     %dt= t('issue.application')

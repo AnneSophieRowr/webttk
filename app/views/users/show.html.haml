@@ -15,17 +15,15 @@
     %dt= t('user.email')
     %dd= @user.email
     %dt= t('user.admin')
-    %dd= @user.admin? 
+    %dd= @user.admin?
 
 .well
   %dl.dl-horizontal
+    %dt= t('user.sign_in_count')
+    %dd= @user.sign_in_count
     %dt= t('user.last_sign_in_at')
     %dd= @user.last_sign_in_at
     %dt= t('user.last_sign_in_ip')
     %dd= @user.last_sign_in_ip
-    %dt= t('user.sign_in_count')
-    %dd= @user.sign_in_count
 
 = link_to t('helpers.submit.back'), users_path, :class => 'btn btn-default'
-
-

@@ -21,7 +21,7 @@
     %dt= t('device.service')
     %dd= @device.service
     %dt= t('device.device')
-    %dd= @device.device.name
+    %dd= @device.device.name unless @device.device.nil?
     %dt= t('device.virtual')
     %dd= @device.virtual
     = @device.virtual_detailed

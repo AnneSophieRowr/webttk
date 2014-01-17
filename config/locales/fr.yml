@@ -2,15 +2,38 @@ fr:
   activerecord:
     errors:
       models: 
+        issue:
+          attributes:
+            application:
+              blank: "L'application doit être renseignée"
+            description:
+              blank: "La description doit être renseignée"
+        status:
+          attributes:
+            name:
+              blank: "Le nom doit être renseigné"
+        category:
+          attributes:
+            name:
+              blank: "Le nom doit être renseigné"
         user:
           attributes:
+            last_name: 
+              blank: "Le nom de famille doit être renseigné"
+            first_name:
+              blank: "Le prénom doit être renseigné"
             email:
+              blank: "L'email doit être renseigné" 
               taken: "Cet email est déjà pris."
             password:
               blank: "Veuillez renseigner le mot de passe"
               too_short: "Le mot de passe est trop court"
             password_confirmation:
               confirmation: "Veuillez confirmer le mot de passe"
+        device:
+          attributes:
+            name:
+              blank: "Le nom doit être renseigné"
   model:
     issue: "Ticket(s)"
     status: "Statut(s)"
@@ -23,11 +46,12 @@ fr:
   user:
     show: "Voir l'utilisateur"
     new: "Créer un utilisateur"
-    create: "Utilisateur créé avec succès"
+    create: "L'utilisateur %{name} a été créé avec succès"
     edit: "Mettre à jour un utilisateur"
-    update: "Utilisateur mis à jour avec succès"
+    update: "L'utilisateur %{name} a été mis à jour avec succès"
     destroy: "Supprimer cet utilisteur"
     confirm_destroy: "Etes-vous sûr de vouloir supprimer cet utilisateur?"
+    destroyed: "L'utilisateur %{name} a été supprimé avec succès"
     search: "Recherche un utilisateur..."
     empty: "Aucun utilisateur"
     last_name: "Nom"
@@ -51,6 +75,7 @@ fr:
     report_date: "Date d'ouverture"
     creator: "Créateur"
     notifier: "Détecteur"
+    follower: "Suivi par"
     application: "Application"
     treatment_fields: "Champs de traitement"
     action: "Action"
@@ -68,15 +93,16 @@ fr:
     category: "Catégorie"
     problem: "Problème"
     device: "Equipement"
-    mine: "Mes tickets"
+    user: "Mes tickets"
   device:
     show: "Montrer l'équipement"
     new: "Créer un équipement"
-    create: "Equipement créé avec succès"
+    create: "L'équipement %{name} a été créé avec succès"
     edit: "Mettre à jour cet équipement"
-    update: "Equipement mis à jour avec succès"
+    update: "L'équipement %{name} a été mis à jour avec succès"
     destroy: "Supprimer cet équipement"
     confirm_destroy: "Etes-vous sûr de vouloir supprimer cet équipement?"
+    destroyed: "L'équipement %{name} a été supprimé avec succès"
     search: "Rechercher un équipement..."
     empty: "Aucun équipement"
     name: "Nom"
@@ -92,23 +118,27 @@ fr:
     vms: "VMS"
     service: "Service"
   status:
+    show: "Montrer le statut"
     new: "Créer un statut"
-    create: "Statut créé avec succès"
+    create: "Le statut %{name} a été créé avec succès"
     edit: "Mettre à jour ce statut"
-    update: "Statut mis à jour avec succès"
+    update: "Le statut %{name} a été mis à jour avec succès"
     destroy: "Supprimer ce statut"
     confirm_destroy: "Etes-vous sûr de vouloir supprimer ce statut?"
+    destroyed: "Le statut %{name} a été supprimé avec succès"
     search: "Rechercher un statut..."
     empty: "Aucun statut"
     name: "Nom"
     description: "Description"
   category:
+    show: "Montrer la catégorie"
     new: "Créer une catégorie"
-    create: "Catégorie créée avec succès"
+    create: "La catégorie %{name} a été créée avec succès"
     edit: "Mettre à jour une catégorie"
-    update: "Catégorie mise à jour avec succès"
+    update: "La catégorie %{name} a été mise à jour avec succès"
     destroy: "Supprimer une catégorie"
     confirm_destroy: "Etes-vous sûr de vouloir supprimer cette catégorie?"
+    destroyed: "La catégorie %{name} a été supprimée avec succès"
     search: "Rechercher une catégorie..."
     empty: "Aucune catégorie"
     name: "Nom"

@@ -21,7 +21,7 @@
           %td= device.description unless device.description.nil?
           %td= device.service unless device.service.nil?
           %td= device.infrastructure
-          %td= device.user.name
+          %td= device.user.name unless device.user.nil?
           %td
             = link_to device, class: 'btn btn-default', title: t('device.show') do
               %span.fa.fa-eye

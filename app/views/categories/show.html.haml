@@ -1,0 +1,18 @@
+.bar-title
+  %h2.pull-left= @category.name
+  .btn-group.pull-right
+    = link_to edit_category_path(@category), class: 'btn btn-default', title: t('category.edit') do
+      %span.fa.fa-edit
+    = link_to category_path(@category), class: 'btn btn-default', title: t('category.destroy'), method: :delete, data: { confirm: t('category.confirm_destroy') } do
+      %span.fa.fa-trash-o
+
+.well
+  %dl.dl-horizontal
+    %dt= t('category.name')
+    %dd= @category.name
+    %dt= t('category.description')
+    %dd= @category.description
+
+= link_to t('helpers.submit.back'), categories_path, :class => 'btn btn-default'
+
+

@@ -1,0 +1,18 @@
+.bar-title
+  %h2.pull-left= @status.name
+  .btn-group.pull-right
+    = link_to edit_status_path(@status), class: 'btn btn-default', title: t('status.edit') do
+      %span.fa.fa-edit
+    = link_to status_path(@status), class: 'btn btn-default', title: t('status.destroy'), method: :delete, data: { confirm: t('status.confirm_destroy') } do
+      %span.fa.fa-trash-o
+
+.well
+  %dl.dl-horizontal
+    %dt= t('status.name')
+    %dd= @status.name
+    %dt= t('status.description')
+    %dd= @status.description
+
+= link_to t('helpers.submit.back'), statuses_path, :class => 'btn btn-default'
+
+

@@ -6,7 +6,7 @@
     = [issues.total_count.to_s, t('model.issue').downcase].join(" ")
     = paginate issues
 
-  %table.table.table-striped
+  %table.table.table-striped.table-hover
     %tr
       %th= t('issue.report_date')
       %th= t('issue.status')

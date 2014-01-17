@@ -1,6 +1,10 @@
 class DeviceDecorator < Draper::Decorator
   delegate_all
 
+  def saved
+    object.saved ? I18n.t('helpers.words.yeslabel') : I18n.t('helpers.words.nolabel')
+  end
+
   def virtual_detailed
     content = []
     if object.hypervisor.nil? && !object.vms.empty?

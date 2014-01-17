@@ -6,7 +6,7 @@
     = [statuses.total_count.to_s, t('model.status').downcase].join(" ")
     = paginate statuses
 
-  %table.table.table-striped
+  %table.table.table-striped.table-hover
     %tr
       %th= t('status.name')
       %th= t('status.description')
@@ -17,6 +17,8 @@
           %td= status.name
           %td= status.description.truncate(40, :omission => "...") unless status.description.nil?
           %td
+            = link_to status, class: 'btn btn-default', title: t('status.show') do
+              %span.fa.fa-eye
             = link_to edit_status_path(status), class: 'btn btn-default', title: t('status.edit') do
               %span.fa.fa-edit
             = link_to status_path(status), class: 'btn btn-default', title: t('status.destroy'), method: :delete, data: { confirm: t('status.confirm_destroy') } do

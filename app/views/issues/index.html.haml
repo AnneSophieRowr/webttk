@@ -6,17 +6,10 @@
 
 %form.well.form-inline.search
   .row
-    .col-xs-3
-      = text_field_tag :q, nil, placeholder: t('issue.search'), class: 'form-control', 'data-provide' => 'typeahead', klass: "issues"
-    .form-group
-      %label= t('issue.status')
-      = select_tag :status, options_for_select(statuses), class: 'filter form-control', klass: 'issues'
-    .form-group
-      %label= t('issue.category')
-      = select_tag :category, options_for_select(categories), class: 'filter form-control', klass: 'issues'
-    .form-group
-      %label= t('issue.mine')
-      = check_box_tag :user, current_user.id, false,  {class: 'filter', klass: 'issues'}
+    = search_input('issue')
+    = filter_input('issue', 'status', 1)
+    = filter_input('issue', 'category')
+    = filter_checkbox('issue', 'user', current_user.id)
 
 #issues.partial
   = render :partial => 'listing', :locals => {:issues => @objects}

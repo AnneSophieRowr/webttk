@@ -1,7 +1,9 @@
 class Category < ActiveRecord::Base
 
-	has_many :issues
+  include Searchable
 
-	validates_presence_of :name
+  has_many :issues
+
+  validates_presence_of :name
 
 end

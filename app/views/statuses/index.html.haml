@@ -6,8 +6,7 @@
 
 %form.well.form-inline.search
   .row
-    .col-xs-3
-      = text_field_tag :q, nil, placeholder: t('status.search'), class: 'form-control', 'data-provide' => 'typeahead', klass: "statuses"
+    = search_input('status')
 
 #statuses.partial
   = render :partial => 'listing', :locals => {:statuses => @objects}

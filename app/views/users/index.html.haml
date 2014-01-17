@@ -1,16 +1,14 @@
 .bar-title
   %h2.pull-left= t('model.user')
   .btn-group.pull-right
-    = link_to new_user_path, class: 'btn btn-default', title: t('user.new') do
+    = link_to new_user_path, class: 'btn btn-default', title: t('device.new') do
       %span.fa.fa-plus
 
 %form.well.form-inline.search
   .row
-    .col-xs-3
-      = text_field_tag :q, nil, placeholder: t('user.search'), class: 'form-control', 'data-provide' => 'typeahead', klass: "users"
-    .form-group
-      %label= t('user.admin')
-      = check_box_tag :admin, 1, false,  { class: 'filter', klass: 'users' }
+    = search_input('user')
+    = filter_checkbox('user', 'admin', 0)
+
 
 #users.partial
   = render :partial => 'listing', :locals => {:users => @objects}
