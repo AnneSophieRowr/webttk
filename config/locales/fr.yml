@@ -61,6 +61,7 @@ fr:
     last_sign_in_ip: "Adresse IP de dernière connexion"
     sign_in_count: "Nombre de connexions"
   issue:
+    export: "Exporter les tickets au format CSV"
     show: "Voir le ticket"
     new: "Créer un ticket"
     create: "Ticket créé avec succès"

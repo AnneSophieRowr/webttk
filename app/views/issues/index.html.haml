@@ -1,6 +1,8 @@
 .bar-title
   %h2.pull-left= t('model.issue')
   .btn-group.pull-right
+    = link_to issues_path(format: 'csv'), class: 'btn btn-default', title: t('issue.export') do
+      %span.fa.fa-download
     = link_to new_issue_path, class: 'btn btn-default', title: t('issue.new') do
       %span.fa.fa-plus
 
