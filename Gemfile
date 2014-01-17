@@ -17,6 +17,6 @@ gem 'font-awesome-sass'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'therubyracer', platforms: :ruby
+gem 'therubyracer'
 gem 'uglifier', '>= 1.3.0'
 
