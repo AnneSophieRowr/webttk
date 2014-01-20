@@ -2,9 +2,7 @@
   = t('user.empty')
 
 - else
-  .pull-left.paginate
-    = [users.total_count.to_s, t('model.user').downcase].join(" ")
-    = paginate users
+  = paginate users
 
   %table.table.table-striped
     %tr
@@ -28,4 +26,3 @@
             = link_to user_path(user), class: 'btn btn-default', title: t('user.destroy'), method: :delete, data: { confirm: t('user.confirm_destroy') } do
               %span.fa.fa-trash-o
 
-    = paginate users
