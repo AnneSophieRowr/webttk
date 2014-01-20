@@ -1,0 +1,29 @@
+- if acts.empty?
+  = t('act.empty')
+
+- else
+  .pull-left.paginate
+    = [acts.total_count.to_s, t('model.act').downcase].join(" ")
+    = paginate acts
+
+  %table.table.table-striped
+    %tr
+      %th= t('act.description')
+      %th= t('act.date')
+      %th= t('act.user')
+      %th
+    %tbody
+      - acts.each do |act|
+        %tr
+          %td= act.description.truncate(40, :omission => "...") unless act.description.nil? 
+          %td= act.date
+          %td= act.user.decorate.name unless act.user.nil?
+          %td
+            = link_to issue_act_path(@issue, act), class: 'btn btn-default', title: t('act.show') do
+              %span.fa.fa-eye
+            = link_to edit_issue_act_path(@issue, act), class: 'btn btn-default', title: t('act.edit') do
+              %span.fa.fa-edit
+            = link_to issue_act_path(@issue, act), class: 'btn btn-default', title: t('act.destroy'), method: :delete, data: { confirm: t('act.confirm_destroy') } do
+              %span.fa.fa-trash-o
+
+    = paginate acts

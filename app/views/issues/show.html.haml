@@ -1,6 +1,8 @@
 .bar-title
   %h2.pull-left= @issue.description if @issue.description
   .btn-group.pull-right
+    = link_to issue_acts_path(@issue), class: 'btn btn-default', title: t('issue.actions') do
+      %span.fa.fa-flag-checkered
     = link_to edit_issue_path(@issue), class: 'btn btn-default', title: t('issue.edit') do
       %span.fa.fa-edit
     = link_to issue_path(@issue), class: 'btn btn-default', title: t('issue.destroy'), method: :delete, data: { confirm: t('issue.confirm_destroy') } do
@@ -14,23 +16,23 @@
     %dd= @issue.report_date
     %dt= t('issue.description')
     %dd= @issue.description  
-    %dt= t('issue.creator')
+    %dt= t('issue.created_by_id')
     %dd= link_to @issue.creator.name, @issue.creator
-    %dt= t('issue.notifier')
+    %dt= t('issue.notified_by_id')
     %dd= link_to @issue.notifier.name, @issue.notifier
-    %dt= t('issue.follower')
+    %dt= t('issue.followed_by_id')
     %dd= link_to @issue.follower.name, @issue.follower unless @issue.follower.nil?
-    %dt= t('issue.device')
+    %dt= t('issue.device_id')
     %dd= link_to @issue.device.name, @issue.device
     %dt= t('issue.application')
     %dd= @issue.application
 
 .well
   %dl.dl-horizontal
-    %dt= t('issue.action')
-    %dd= @issue.action
-    %dt= t('issue.next_action')
-    %dd= @issue.next_action
+    = @issue.decorate.actions_show
+
+.well
+  %dl.dl-horizontal
     %dt= t('issue.detailed_cause')
     %dd= @issue.detailed_cause
     %dt= t('issue.start_time')

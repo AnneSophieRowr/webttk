@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :trackable, :validatable
 
   has_many :issues
+  has_many :acts
 
   validates_confirmation_of :password
   validates_presence_of :last_name, :first_name, :email

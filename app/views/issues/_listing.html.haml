@@ -9,11 +9,12 @@
   %table.table.table-striped.table-hover
     %tr
       %th= t('issue.report_date')
-      %th= t('issue.status')
+      %th= t('issue.status_id')
       %th= t('issue.description')
-      %th= t('issue.creator')
-      %th= t('issue.device')
+      %th= t('issue.created_by_id')
+      %th= t('issue.device_id')
       %th= t('issue.application')
+      %th= t('issue.acts')
       %th
     %tbody
       - issues.each do |issue|
@@ -24,9 +25,12 @@
           %td= issue.creator.name
           %td= issue.device.name unless issue.device.nil?
           %td= issue.application
+          %td= issue.acts.count
           %td
             = link_to issue, class: 'btn btn-default', title: t('issue.show') do
               %span.fa.fa-eye
+            = link_to issue_acts_path(issue), class: 'btn btn-default', title: t('issue.actions') do
+              %span.fa.fa-flag-checkered
             = link_to edit_issue_path(issue), class: 'btn btn-default', title: t('issue.edit') do
               %span.fa.fa-edit
             = link_to issue_path(issue), class: 'btn btn-default', title: t('issue.destroy'), method: :delete, data: { confirm: t('issue.confirm_destroy') } do

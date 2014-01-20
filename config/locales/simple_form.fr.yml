@@ -34,6 +34,8 @@ fr:
         app_status: "Statut de l'application"
         category_id: "Catégorie"
         problem: "Problème"
+      act:
+        user_id: "Utilisateur"
       device:
         os: "Système d'exploitation"
         ip: "Adresse IP"

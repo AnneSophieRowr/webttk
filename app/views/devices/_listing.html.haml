@@ -16,7 +16,7 @@
       %th
     %tbody
       - devices.each do |device|
-        %tr{href: url_for(device)}
+        %tr
           %td= device.name unless device.name.nil?
           %td= device.description unless device.description.nil?
           %td= device.service unless device.service.nil?

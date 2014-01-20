@@ -13,7 +13,7 @@
       %th
     %tbody
       - categories.each do |category|
-        %tr{href: url_for(category)}
+        %tr
           %td= category.name
           %td= category.description.truncate(40, :omission => "...") unless category.description.nil?
           %td

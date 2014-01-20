@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140117140145) do
+ActiveRecord::Schema.define(version: 20140120110613) do
+
+  create_table "acts", force: true do |t|
+    t.text     "description", null: false
+    t.date     "date",        null: false
+    t.integer  "user_id",     null: false
+    t.integer  "issue_id",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -43,8 +52,6 @@ ActiveRecord::Schema.define(version: 20140117140145) do
     t.integer  "created_by_id",              null: false
     t.integer  "notified_by_id",             null: false
     t.string   "application",                null: false
-    t.text     "action"
-    t.text     "next_action"
     t.text     "detailed_cause"
     t.datetime "start_time"
     t.datetime "end_time"

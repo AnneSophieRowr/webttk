@@ -11,6 +11,10 @@ Webttk::Application.routes.draw do
   get '/statistics/chart_data', to: 'statistics#chart_data', as: :chart_data_statistic
   get '/statistics/:id', to: 'statistics#show', as: :statistic
 
-  resources :issues, :statuses, :categories, :users, :devices, concerns: :searchable
+  resources :statuses, :categories, :users, :devices, concerns: :searchable
+
+  resources :issues, concerns: :searchable do 
+    resources :acts
+  end
 
 end

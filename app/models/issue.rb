@@ -8,6 +8,7 @@ class Issue < ActiveRecord::Base
   belongs_to 	:notifier, :class_name  => 'User', :foreign_key => 'notified_by_id'
   belongs_to 	:follower, :class_name  => 'User', :foreign_key => 'followed_by_id'
   belongs_to 	:device
+  has_many      :acts, dependent: :destroy
 
   validates_presence_of :device_id, :status_id, :report_date, :description, :created_by_id, :notified_by_id, :application
 
@@ -34,10 +35,13 @@ class Issue < ActiveRecord::Base
   class << self
 
     def to_csv
+      columns = column_names.reject {|c| c == 'id'}
+      belongs = {}
+      reflections.each {|k,v| belongs[v.foreign_key.to_s] = k.to_s}
       CSV.generate do |csv|
-        csv << column_names
+        csv << columns.collect {|c| I18n.t("issue.#{c}")}
         all.each do |issue|
-          csv << issue.attributes.values_at(*column_names)
+          csv << columns.collect {|c| (belongs.keys.include? c) ? issue.send(belongs[c]).nil? ? nil : issue.send(belongs[c]).name : issue.send(c)} 
         end
       end
     end

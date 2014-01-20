@@ -1,0 +1,18 @@
+.bar-title
+  %h2.pull-left= @act.date
+  .btn-group.pull-right
+    = link_to edit_issue_act_path(@issue, @act), class: 'btn btn-default', title: t('act.edit') do
+      %span.fa.fa-edit
+    = link_to issue_act_path(@issue, @act), class: 'btn btn-default', title: t('act.destroy'), method: :delete, data: { confirm: t('act.confirm_destroy') } do
+      %span.fa.fa-trash-o
+
+.well
+  %dl.dl-horizontal
+    %dt= t('act.description')
+    %dd= @act.description
+    %dt= t('act.date')
+    %dd= @act.date
+    %dt= t('act.user')
+    %dd= @act.user.decorate.name
+
+= link_to t('helpers.submit.back'), issue_acts_path(@issue), :class => 'btn btn-default'

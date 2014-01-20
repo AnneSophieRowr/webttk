@@ -1,0 +1,10 @@
+= simple_form_for [@issue, @act], :html => {class: 'form-horizontal'} do |f|
+
+  = f.input :description
+  = f.input :date, as: :datepicker
+  = f.input :user_id, collection: User.all, selected: (@act.user.nil? ? current_user : @act.user)
+  = f.input :issue_id, as: :hidden
+
+  .form_acts
+    = f.button :submit
+    = link_to t('helpers.submit.cancel'), :back, :class => 'btn btn-default'

@@ -17,6 +17,7 @@ class Device < ActiveRecord::Base
   SEARCH_FIELDS		= %w[name description ip service]
 
   class << self	
+
     def vms
       where(virtual: "Physique")
     end

@@ -34,6 +34,12 @@ fr:
           attributes:
             name:
               blank: "Le nom doit être renseigné"
+        act:
+          attributes:
+            description:
+              blank: "La description doit être renseignée"
+            date:
+              blank: "La date doit être renseignée"
   model:
     issue: "Ticket(s)"
     status: "Statut(s)"
@@ -41,6 +47,7 @@ fr:
     user: "Utilisateur(s)"
     statistic: "Statistique(s)"
     device: "Equipement(s)"
+    act: "Action(s)"
   statistic:
     by_month: "Nombre d'incidents par mois"
   user:
@@ -60,8 +67,22 @@ fr:
     last_sign_in_at: "Date de dernière connexion"
     last_sign_in_ip: "Adresse IP de dernière connexion"
     sign_in_count: "Nombre de connexions"
+  act:
+    show: "Montrer l'action"
+    new: "Nouvelle action"
+    create: "Une nouvelle action a bien été créée pour le ticket"
+    edit: "Modifier l'action"
+    update: "L'action a bien été modifiée"
+    destroy: "Supprimer cette action"
+    confirm_destroy: "Etes-vous sûr de vouloir supprimer cette action?"
+    destroyed: "L'action a bien été supprimée"
+    empty: "Aucune action"
+    description: "Description"
+    date: "Date"
+    user: "Utilisateur"
   issue:
     export: "Exporter les tickets au format CSV"
+    actions: "Gérer les actions"
     show: "Voir le ticket"
     new: "Créer un ticket"
     create: "Ticket créé avec succès"
@@ -72,15 +93,16 @@ fr:
     search: "Rechercher un ticket..."
     empty: "Aucun ticket"
     required_fields: "Champs obligatoires"
-    status: "Statut"
+    acts: "Action(s)"
+    description: "Description"
+    status_id: "Statut"
     report_date: "Date d'ouverture"
-    creator: "Créateur"
-    notifier: "Détecteur"
+    created_by_id: "Créateur"
+    notified_by_id: "Détecteur"
     follower: "Suivi par"
+    followed_by_id: "Suivi par"
     application: "Application"
     treatment_fields: "Champs de traitement"
-    action: "Action"
-    next_action: "Prochaine action"
     detailed_cause: "Cause détaillée"
     start_time: "Date de début"
     end_time: "Date de fin"
@@ -91,10 +113,12 @@ fr:
     detection: "Détection"
     app_status: "Statut de l'application"
     category: "Catégorie"
-    category: "Catégorie"
+    category_id: "Catégorie"
     problem: "Problème"
-    device: "Equipement"
+    device_id: "Equipement"
     user: "Mes tickets"
+    created_at: "Créé le"
+    updated_at: "Mis à jour le"
   device:
     show: "Montrer l'équipement"
     new: "Créer un équipement"
@@ -186,3 +210,6 @@ fr:
       about_x_hours:
         one: "Il y a une heure"
         other: "Il y a %{count} heures"
+      less_than_x_minutes:
+        one: "Il y a moins d'une minute"
+        other: "Il y a moins de %{count} minutes"

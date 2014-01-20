@@ -1,0 +1,8 @@
+.bar-title
+  %h2.pull-left= t('model.act')
+  .btn-group.pull-right
+    = link_to new_issue_act_path(@issue), class: 'btn btn-default', title: t('act.new') do
+      %span.fa.fa-plus
+
+#acts.partial
+  = render :partial => 'listing', :locals => {:acts => @objects}
