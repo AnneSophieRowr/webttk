@@ -8,6 +8,10 @@ fr:
               blank: "L'application doit être renseignée"
             description:
               blank: "La description doit être renseignée"
+            detailed_cause:
+              blank: "La cause détaillée doit être renseignée pour pouvoir fermer le ticket"
+            closure_date:
+              blank: "La date de clotûre doit être renseignée pour pouvoir fermer le ticket"
         status:
           attributes:
             name:
