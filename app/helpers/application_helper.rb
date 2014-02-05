@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def duration(from, to)
     to = to.nil? ? Time.now : to
-    distance_of_time_in_words(from, to).gsub('Il y a', '')
+    distance_of_time_in_words(to, from).gsub('Il y a', '')
   end
 
   def sortable(column, title = nil)

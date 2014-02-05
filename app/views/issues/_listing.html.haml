@@ -12,6 +12,7 @@
       %th= t('issue.status_id')
       %th= t('issue.description')
       %th= t('issue.created_by_id')
+      %th= t('issue.followed_by_id')
       %th= t('issue.device_id')
       %th= t('issue.application')
       %th= t('issue.acts')
@@ -23,6 +24,7 @@
           %td= issue.status.name 
           %td= issue.description.truncate(40, :omission => "...") unless issue.description.nil?
           %td= issue.creator.name
+          %td= issue.follower.name
           %td= issue.device.name unless issue.device.nil?
           %td= issue.application
           %td= issue.acts.count

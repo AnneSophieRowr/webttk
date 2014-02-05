@@ -1,5 +1,5 @@
 .bar-title
-  %h2.pull-left= @issue.description if @issue.description
+  %h2.pull-left= @issue.description.truncate(60, :omission => "...") if @issue.description
   .btn-group.pull-right
     = link_to issue_acts_path(@issue), class: 'btn btn-default', title: t('issue.actions') do
       %span.fa.fa-flag-checkered
@@ -27,9 +27,10 @@
     %dt= t('issue.application')
     %dd= @issue.application
 
-.well
-  %dl.dl-horizontal
-    = @issue.decorate.actions_show
+- unless @issue.acts.empty?
+  .well
+    %dl.dl-horizontal
+      = @issue.decorate.actions_show
 
 .well
   %dl.dl-horizontal
@@ -40,9 +41,15 @@
     %dt= t('issue.end_time')
     %dd= @issue.end_time
     %br
-    %dt= t('issue.duration1')
+    %dt
+      = t('issue.duration1')
+      .small 
+        = t('issue.duration1_desc')
     %dd= duration(@issue.start_time, @issue.end_time) unless @issue.start_time.nil?
-    %dt= t('issue.duration2')
+    %dt
+      = t('issue.duration2')
+      .small 
+        = t('issue.duration2_desc')
     %dd= duration(@issue.report_date, @issue.closure_date) 
 
 .well

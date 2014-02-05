@@ -107,7 +107,9 @@ fr:
     start_time: "Date de début"
     end_time: "Date de fin"
     duration1: "Durée 1"
+    duration1_desc: "Date de fin - date de début"
     duration2: "Durée 2"
+    duration2_desc: "Date de clotûre - date d'ouverture"
     manager_fields: "Champs manager"
     closure_date: "Date de clotûre"
     detection: "Détection"
@@ -204,6 +206,9 @@ fr:
       - :year
   datetime:
     distance_in_words: 
+      x_minutes:
+        one: "Il y a une minute"
+        other: "Il y a %{count} minutes"
       x_months:
         one: "Il y a un mois"
         other: "Il y a %{count} mois"

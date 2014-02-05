@@ -1,5 +1,5 @@
 - if acts.empty?
-  = t('act.empty')
+  %p= t('act.empty')
 
 - else
   .pull-left.paginate
@@ -27,3 +27,5 @@
               %span.fa.fa-trash-o
 
     = paginate acts
+
+= link_to t('helpers.submit.back'), :back, :class => 'btn btn-default'
