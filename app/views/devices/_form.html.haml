@@ -11,6 +11,7 @@
   = f.input :virtual, collection: Device::VIRTUAL, selected: @device.virtual, prompt: t('helpers.words.choose')
   = f.input :hypervisor_id, collection: Device.vms, selected: @device.hypervisor, prompt: t('helpers.words.choose')
   = f.input :service
+  = f.input :criticality
 
   .form_actions
     = f.button :submit

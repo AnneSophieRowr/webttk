@@ -30,8 +30,9 @@
       .panel-collapse.collapse#manager
         .panel-body
           = f.input :closure_date, as: :datepicker
-          = f.input :detection, collection: Issue::DETECTIONS, selected: @issue.detection, prompt: t('helpers.words.choose')
+          = f.input :detection, collection: Issue::DETECTIONS, selected: @issue.detection
           = f.input :app_status, collection: Issue::APP_STATUSES, selected: @issue.app_status, prompt: t('helpers.words.choose')
+          = f.input :impact, collection: Issue::IMPACTS, selected: @issue.impact, prompt: t('helpers.words.choose')
           = f.input :category_id, collection: Category.all, selected: @issue.category, prompt: t('helpers.words.choose')
           = f.input :problem
 

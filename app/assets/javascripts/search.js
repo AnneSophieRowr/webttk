@@ -16,6 +16,7 @@ $(document).ready(function(){
     _.each($('.filter'), function(filter) {
       params[filter.name] = (filter.type == 'checkbox' && !filter.checked) ? 0 : filter.value
     });
+    console.log(params);
 
     $.get(
       $(this).attr('url'),

@@ -25,5 +25,7 @@
     %dt= t('device.virtual')
     %dd= @device.virtual
     = @device.virtual_detailed
+    %dt= t('device.criticality')
+    %dd= @device.criticality
 
 = link_to t('helpers.submit.back'), devices_path, :class => 'btn btn-default'

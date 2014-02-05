@@ -13,6 +13,7 @@ class Issue < ActiveRecord::Base
   validates_presence_of :device_id, :status_id, :report_date, :description, :created_by_id, :notified_by_id, :application
 
   DETECTIONS = %w[Reactif Proactif]
+  IMPACTS = %w[weak average strong total].collect {|c| I18n.t("issue.#{c}")}
   APP_STATUSES = %w[OK Down]
   SEARCH_FIELDS = %w[report_date description application]
 
@@ -58,7 +59,7 @@ class Issue < ActiveRecord::Base
 
     def by_user(user)
       puts "user: #{user}"
-      user == '0' ? all : where(created_by_id: user)
+      user == '0' ? all : where(followed_by_id: user)
     end
   end
 

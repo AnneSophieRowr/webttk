@@ -28,7 +28,7 @@ class IssuesController < ApplicationController
     @issue.created_by_id = current_user.id
 
     if @issue.save
-      redirect_to issues_path, notice: t('issues.create') 
+      redirect_to issues_path, notice: t('issue.create') 
     else
       render action: 'new' 
     end
@@ -36,7 +36,7 @@ class IssuesController < ApplicationController
 
   def update
     if @issue.update(issue_params)
-      redirect_to issues_path, notice: t('issues.update') 
+      redirect_to @issue, notice: t('issue.update') 
     else
       render action: 'edit' 
     end
@@ -53,7 +53,7 @@ class IssuesController < ApplicationController
     end
 
     def issue_params
-      params.require(:issue).permit(:status_id, :report_date, :description, :created_by_id, :notified_by_id, :device_id, :application, :detailed_cause, :start_time, :end_time, :closure_date, :detection, :app_status, :category_id, :problem, :followed_by_id)
+      params.require(:issue).permit(:status_id, :report_date, :description, :created_by_id, :notified_by_id, :device_id, :application, :detailed_cause, :start_time, :end_time, :closure_date, :detection, :app_status, :impact, :category_id, :problem, :followed_by_id)
     end
 
     def sort_column

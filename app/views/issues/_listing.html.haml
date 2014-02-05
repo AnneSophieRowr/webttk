@@ -27,14 +27,17 @@
           %td= issue.application
           %td= issue.acts.count
           %td
-            = link_to issue, class: 'btn btn-default', title: t('issue.show') do
-              %span.fa.fa-eye
-            = link_to issue_acts_path(issue), class: 'btn btn-default', title: t('issue.actions') do
-              %span.fa.fa-flag-checkered
-            = link_to edit_issue_path(issue), class: 'btn btn-default', title: t('issue.edit') do
-              %span.fa.fa-edit
-            = link_to issue_path(issue), class: 'btn btn-default', title: t('issue.destroy'), method: :delete, data: { confirm: t('issue.confirm_destroy') } do
-              %span.fa.fa-trash-o
+            .row
+              = link_to issue, class: 'btn btn-default', title: t('issue.show') do
+                %span.fa.fa-eye
+              = link_to issue_acts_path(issue), class: 'btn btn-default', title: t('issue.actions') do
+                %span.fa.fa-flag-checkered
+            .row
+              = link_to edit_issue_path(issue), class: 'btn btn-default', title: t('issue.edit') do
+                %span.fa.fa-edit
+              - if current_user.admin
+                = link_to issue_path(issue), class: 'btn btn-default', title: t('issue.destroy'), method: :delete, data: { confirm: t('issue.confirm_destroy') } do
+                  %span.fa.fa-trash-o
 
     = paginate issues
 

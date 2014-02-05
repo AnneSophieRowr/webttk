@@ -47,7 +47,7 @@ class DevicesController < ApplicationController
   end
 
   def device_params
-    params.require(:device).permit(:name, :description, :ip, :os, :saved, :infrastructure, :user_id, :environment, :virtual, :hypervisor_id, :service)
+    params.require(:device).permit(:name, :description, :ip, :os, :saved, :infrastructure, :user_id, :environment, :virtual, :hypervisor_id, :service, :criticality)
   end
 
   def sort_column

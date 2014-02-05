@@ -53,6 +53,8 @@
     %dd= @issue.detection
     %dt= t('issue.app_status')
     %dd= @issue.app_status
+    %dt= t('issue.impact')
+    %dd= @issue.impact
     %dt= t('issue.category')
     %dd= link_to(@issue.category.name, @issue.category) unless @issue.category.nil?
     %dt= t('issue.problem')

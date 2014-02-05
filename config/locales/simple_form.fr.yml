@@ -32,6 +32,7 @@ fr:
         closure_date: "Date de clotûre"
         detection: "Détection"
         app_status: "Statut de l'application"
+        impact: "Impact"
         category_id: "Catégorie"
         problem: "Problème"
       act:
@@ -46,11 +47,5 @@ fr:
         virtual: "Virtuel / Physique"
         hypervisor_id: "Hyperviseur"
         service: "Service"
-
-    #     edit:
-    #       email: 'E-mail.'
-    # hints:
-    #   defaults:
-    #     username: 'User name to sign in.'
-    #     password: 'No special characters, please.'
+        criticality: "Criticité"
 
