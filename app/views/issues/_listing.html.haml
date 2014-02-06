@@ -8,22 +8,24 @@
 
   %table.table.table-striped.table-hover
     %tr
+      %th= '#'
       %th= t('issue.report_date')
       %th= t('issue.status_id')
       %th= t('issue.description')
-      %th= t('issue.created_by_id')
       %th= t('issue.followed_by_id')
+      %th= t('issue.application')
       %th= t('issue.device_id')
       %th= t('issue.acts')
       %th
     %tbody
       - issues.each do |issue|
         %tr
+          %td= issue.id
           %td= issue.report_date 
           %td= issue.status.name 
           %td= issue.description.truncate(20, :omission => "...") unless issue.description.nil?
-          %td= issue.creator.name
           %td= issue.follower.name
+          %td= issue.application
           %td= issue.device.name unless issue.device.nil?
           %td= issue.acts.count
           %td
