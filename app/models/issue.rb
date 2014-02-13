@@ -26,9 +26,9 @@ class Issue < ActiveRecord::Base
 
   def duration1
     time = 'test'
-    unless start_time.nil?
-      end_time = Time.now if end_time.nil?
-      time = distance_of_time_in_words(start_time, end_time)
+    unless start_date.nil?
+      end_date = Time.now if end_date.nil?
+      time = distance_of_time_in_words(start_date, end_date)
     end
     return time
   end

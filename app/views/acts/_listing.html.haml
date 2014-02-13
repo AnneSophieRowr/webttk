@@ -9,14 +9,14 @@
   %table.table.table-striped
     %tr
       %th= t('act.description')
-      %th= t('act.date')
+      %th= t('act.report_date')
       %th= t('act.user')
       %th
     %tbody
       - acts.each do |act|
         %tr
           %td= act.description.truncate(40, :omission => "...") unless act.description.nil? 
-          %td= act.date
+          %td= act.report_date.to_datetime
           %td= act.user.decorate.name unless act.user.nil?
           %td
             = link_to issue_act_path(@issue, act), class: 'btn btn-default', title: t('act.show') do

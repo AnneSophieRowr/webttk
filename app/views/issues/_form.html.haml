@@ -7,7 +7,7 @@
       .panel-collapse.collapse#required	
         .panel-body
           = f.input :status_id, collection: Status.all, selected: @issue.status
-          = f.input :report_date, as: :disabled_datepicker
+          = f.input :report_date, as: :disabled_datetimepicker
           = f.input :description
           = f.input :created_by_id, as: :string, disabled: true, :input_html => { :value => @issue.creator.name }
           = f.input :notified_by_id, collection: User.all.order('last_name asc'), selected: @issue.notifier.nil? ? current_user.id : @issue.notifier
@@ -21,15 +21,15 @@
       .panel-collapse.collapse#treatment	
         .panel-body
           = f.input :detailed_cause
-          = f.input :start_time, as: :datepicker
-          = f.input :end_time, as: :datepicker
+          = f.input :start_date, as: :datetimepicker
+          = f.input :end_date, as: :datetimepicker
 
     .panel.panel-default
       .panel-heading
         %h4.panel-title= link_to t('issue.manager_fields'), '#manager', 'data-toggle' => 'collapse', 'data-parent' => "#accordion"
       .panel-collapse.collapse#manager
         .panel-body
-          = f.input :closure_date, as: :datepicker
+          = f.input :closure_date, as: :datetimepicker
           = f.input :detection, collection: Issue::DETECTIONS, selected: @issue.detection
           = f.input :app_status, collection: Issue::APP_STATUSES, selected: @issue.app_status, prompt: t('helpers.words.choose')
           = f.input :impact, collection: Issue::IMPACTS, selected: @issue.impact, prompt: t('helpers.words.choose')

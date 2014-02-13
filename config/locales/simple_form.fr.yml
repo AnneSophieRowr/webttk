@@ -27,8 +27,8 @@ fr:
         action: "Action"
         next_action: "Prochaine action"
         detailed_cause: "Cause détaillée"
-        start_time: "Date de début"
-        end_time: "Date de fin"
+        start_date: "Date de début"
+        end_date: "Date de fin"
         closure_date: "Date de clotûre"
         detection: "Détection"
         app_status: "Statut de l'application"
@@ -37,6 +37,7 @@ fr:
         problem: "Problème"
       act:
         user_id: "Utilisateur"
+        report_date: "Date"
       device:
         os: "Système d'exploitation"
         ip: "Adresse IP"

@@ -1,5 +1,5 @@
 .bar-title
-  %h2.pull-left= @act.date
+  %h2.pull-left= @act.report_date
   .btn-group.pull-right
     = link_to edit_issue_act_path(@issue, @act), class: 'btn btn-default', title: t('act.edit') do
       %span.fa.fa-edit
@@ -10,8 +10,8 @@
   %dl.dl-horizontal
     %dt= t('act.description')
     %dd= @act.description
-    %dt= t('act.date')
-    %dd= @act.date
+    %dt= t('act.report_date')
+    %dd= @act.report_date
     %dt= t('act.user')
     %dd= @act.user.decorate.name
 

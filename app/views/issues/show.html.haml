@@ -36,16 +36,16 @@
   %dl.dl-horizontal
     %dt= t('issue.detailed_cause')
     %dd= @issue.detailed_cause
-    %dt= t('issue.start_time')
-    %dd= @issue.start_time
-    %dt= t('issue.end_time')
-    %dd= @issue.end_time
+    %dt= t('issue.start_date')
+    %dd= @issue.start_date
+    %dt= t('issue.end_date')
+    %dd= @issue.end_date
     %br
     %dt
       = t('issue.duration1')
       .small 
         = t('issue.duration1_desc')
-    %dd= duration(@issue.start_time, @issue.end_time) unless @issue.start_time.nil?
+    %dd= duration(@issue.start_date, @issue.end_date) unless @issue.start_date.nil?
     %dt
       = t('issue.duration2')
       .small 

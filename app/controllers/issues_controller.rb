@@ -53,7 +53,7 @@ class IssuesController < ApplicationController
     end
 
     def issue_params
-      params.require(:issue).permit(:status_id, :report_date, :description, :created_by_id, :notified_by_id, :device_id, :application, :detailed_cause, :start_time, :end_time, :closure_date, :detection, :app_status, :impact, :category_id, :problem, :followed_by_id)
+      params.require(:issue).permit(:status_id, :report_date, :report_time, :description, :created_by_id, :notified_by_id, :device_id, :application, :detailed_cause, :start_date, :start_time, :end_date, :end_time, :closure_date, :closure_dtime, :detection, :app_status, :impact, :category_id, :problem, :followed_by_id)
     end
 
     def sort_column
@@ -65,13 +65,14 @@ class IssuesController < ApplicationController
     end 
 
     def fix_datetime_params
-      %w[report_date start_time end_time closure_date].each do |date_attr|
-        unless params[:issue][date_attr].empty?
-          short_date = DateTime.parse(params[:issue][date_attr])
-        full_date = DateTime.parse(params[:issue][date_attr])
-        full_date = full_date.change({:hour => short_date.hour, :minute => short_date.minute})
-        params[:issue].merge!({date_attr => full_date})
+      %w[report start end closure].each do |attr|
+        unless params[:issue]["#{attr}_date"].empty? or params[:issue]["#{attr}_time"].empty?
+          date = Date.parse(params[:issue]["#{attr}_date"])
+          time = Time.parse(params[:issue]["#{attr}_time"])
+          datetime = DateTime.new(date.year, date.month, date.day, time.hour, time.min) 
+          params[:issue].merge!({"#{attr}_date" => datetime})
+        end
       end
+      params[:issue].reject! {|k| k.to_s.include? 'time'}
     end
-  end
 end

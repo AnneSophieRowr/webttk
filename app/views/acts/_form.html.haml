@@ -1,7 +1,7 @@
 = simple_form_for [@issue, @act], :html => {class: 'form-horizontal'} do |f|
 
   = f.input :description
-  = f.input :date, as: :datepicker, input_html: { value: @issue.created_at }
+  = f.input :report_date, as: :datetimepicker, input_html: { value: (@act.report_date.nil? ? @issue.created_at : @act.report_date) }
   = f.input :user_id, collection: User.all, selected: (@act.user.nil? ? current_user.id : @act.user.id)
   = f.input :issue_id, as: :hidden
 

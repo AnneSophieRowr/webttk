@@ -42,7 +42,7 @@ fr:
           attributes:
             description:
               blank: "La description doit être renseignée"
-            date:
+            report_date:
               blank: "La date doit être renseignée"
   model:
     issue: "Ticket(s)"
@@ -82,7 +82,7 @@ fr:
     destroyed: "L'action a bien été supprimée"
     empty: "Aucune action"
     description: "Description"
-    date: "Date"
+    report_date: "Date"
     user: "Utilisateur"
   issue:
     export: "Exporter les tickets au format CSV"
@@ -108,8 +108,8 @@ fr:
     application: "Application"
     treatment_fields: "Champs de traitement"
     detailed_cause: "Cause détaillée"
-    start_time: "Date de début"
-    end_time: "Date de fin"
+    start_date: "Date de début"
+    end_date: "Date de fin"
     duration1: "Durée 1"
     duration1_desc: "Date de fin - date de début"
     duration2: "Durée 2"

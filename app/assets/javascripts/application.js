@@ -7,7 +7,14 @@
 
 $(document).ready(function(){
 
-  $(".date_picker").datepicker( $.datepicker.regional['fr'] );
+  $('.timepicker').datetimepicker({
+    language: 'fr',
+    pickDate: false
+  });
 
+  $('.datepicker').datetimepicker({
+    language: 'fr',
+    pickTime: false
+  });
 });
 
