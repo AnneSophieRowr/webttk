@@ -16,7 +16,7 @@
         %tr
           %td= category.name
           %td= category.description.truncate(40, :omission => "...") unless category.description.nil?
-          %td
+          %td.actions
             = link_to category, class: 'btn btn-default', title: t('category.show') do
               %span.fa.fa-eye
             = link_to edit_category_path(category), class: 'btn btn-default', title: t('category.edit') do

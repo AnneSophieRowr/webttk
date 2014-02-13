@@ -16,7 +16,7 @@
         %tr
           %td= status.name
           %td= status.description.truncate(40, :omission => "...") unless status.description.nil?
-          %td
+          %td.actions
             = link_to status, class: 'btn btn-default', title: t('status.show') do
               %span.fa.fa-eye
             = link_to edit_status_path(status), class: 'btn btn-default', title: t('status.edit') do
