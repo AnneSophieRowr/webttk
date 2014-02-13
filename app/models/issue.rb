@@ -49,17 +49,14 @@ class Issue < ActiveRecord::Base
     end
 
     def by_status(status)
-      puts "status: #{status}"
       status == '0' ? all  : where(status_id: status)
     end
 
     def by_category(category)
-      puts "cat: #{category}"
       category == '0' ? all  : where(category_id: category)
     end
 
     def by_user(user)
-      puts "user: #{user}"
       user == '0' ? all : where(followed_by_id: user)
     end
   end
