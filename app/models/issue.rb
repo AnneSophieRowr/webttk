@@ -1,6 +1,7 @@
 class Issue < ActiveRecord::Base
   
   include Searchable
+  include Exportable
 
   belongs_to 	:category
   belongs_to 	:status
@@ -33,20 +34,7 @@ class Issue < ActiveRecord::Base
     return time
   end
 
-  require 'csv'
   class << self
-
-    def to_csv
-      columns = column_names.reject {|c| c == 'id'}
-      belongs = {}
-      reflections.each {|k,v| belongs[v.foreign_key.to_s] = k.to_s}
-      CSV.generate do |csv|
-        csv << columns.collect {|c| I18n.t("issue.#{c}")}
-        all.each do |issue|
-          csv << columns.collect {|c| (belongs.keys.include? c) ? issue.send(belongs[c]).nil? ? nil : issue.send(belongs[c]).name : issue.send(c)} 
-        end
-      end
-    end
 
     def by_status(status)
       status == '0' ? all  : where(status_id: status)

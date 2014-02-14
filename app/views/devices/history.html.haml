@@ -1,0 +1,17 @@
+.bar-title
+  %h2.pull-left= @device.name
+
+%table.table
+  %tr
+    %th= t('history.event')
+    %th= t('history.who')
+    %th= t('history.when')
+    %th= t('history.column')
+    %th= t('history.before')
+    %th= t('history.after')
+  %tbody
+    - @device.versions.each do |version|
+      = history_row(version)
+
+
+= link_to t('helpers.submit.back'), devices_path, :class => 'btn btn-default'

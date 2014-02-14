@@ -1,6 +1,9 @@
 class Device < ActiveRecord::Base
 
   include Searchable
+  include Exportable
+
+  has_paper_trail :ignore => [:updated_at]
 
   belongs_to	:hypervisor, class_name: 'Device'
   belongs_to	:user

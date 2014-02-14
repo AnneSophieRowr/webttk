@@ -9,6 +9,7 @@ gem 'kaminari'
 gem 'devise'
 gem 'simple_form'
 gem 'draper'
+gem 'paper_trail'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'haml'

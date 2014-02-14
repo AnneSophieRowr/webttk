@@ -1,0 +1,42 @@
+.bar-title
+  %h2.pull-left= @device.name
+
+%table.table
+  %tr
+    %th Action
+    %th Qui
+    %th Quand
+    %th Attribut
+    %th Avant
+    %th Après
+  %tbody
+    %tr.success
+      %td Création
+      %td Anne-Sophie Rouaux
+      %td 14/02/2014 13:16
+      %td -
+      %td -
+      %td -
+    %tr
+      %td Mise à jour
+      %td Olivier Grall
+      %td 14/02/2014 15:30
+      %td Infrastructure
+      %td Windows
+      %td Linux 
+    %tr
+      %td Mise à jour
+      %td Olivier Grall
+      %td 14/02/2014 15:30
+      %td Environnement
+      %td Test
+      %td Production
+    %tr.danger
+      %td Suppression
+      %td Marc-André Grosy
+      %td 20/02/2014 12;00
+      %td -
+      %td -
+      %td -
+
+= link_to t('helpers.submit.back'), devices_path, :class => 'btn btn-default'

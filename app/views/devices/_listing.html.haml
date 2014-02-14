@@ -12,7 +12,7 @@
       %th= t('device.description')
       %th= t('device.service')
       %th= t('device.infrastructure')
-      %th= t('device.user')
+      %th= t('device.user_id')
       %th
     %tbody
       - devices.each do |device|
@@ -23,11 +23,21 @@
           %td= device.infrastructure
           %td= device.user.name unless device.user.nil?
           %td.actions
-            = link_to device, class: 'btn btn-default', title: t('device.show') do
-              %span.fa.fa-eye
-            = link_to edit_device_path(device), class: 'btn btn-default', title: t('device.edit') do
-              %span.fa.fa-edit
-            = link_to device_path(device), class: 'btn btn-default', title: t('device.destroy'), method: :delete, data: { confirm: t('device.confirm_destroy') } do
-              %span.fa.fa-trash-o
+            .row
+              = link_to device, class: 'btn btn-default', title: t('device.show') do
+                %span.fa.fa-eye
+              - if device.active
+                = link_to edit_device_path(device), class: 'btn btn-default', title: t('device.edit') do
+                  %span.fa.fa-edit
+            .row
+              - if device.active
+                = link_to sleep_device_path(device), class: 'btn btn-default', title: t('device.sleep'), data: { confirm: t('device.confirm_sleep') } do
+                  %span.fa.fa-moon-o
+              - else
+                = link_to wake_device_path(device), class: 'btn btn-default', title: t('device.wake'), data: { confirm: t('device.confirm_wake') } do
+                  %span.fa.fa-sun-o
+
+              = link_to history_device_path(device), class: 'btn btn-default', title: t('device.history') do
+                %span.fa.fa-clock-o
 
     = paginate devices

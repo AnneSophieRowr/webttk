@@ -1,9 +1,13 @@
 class DevicesController < ApplicationController
   include Concerns::Search
-  before_action :set_device, only: [:show, :edit, :update, :destroy]
+  before_action :set_device, only: [:history, :show, :edit, :update, :sleep, :wake]
 
   def index
     @objects = Device.order(sort_column + ' ' + sort_direction).page(params[:page])
+    respond_to do |format|
+      format.html
+      format.csv { send_data Device.to_csv }
+    end
   end
 
   def new
@@ -35,10 +39,16 @@ class DevicesController < ApplicationController
     end
   end
 
-  def destroy
-    name = @device.name
-    @device.destroy
-    redirect_to devices_url, notice: t('device.destroyed', name: name) 
+  def sleep
+    @device.active = false
+    @device.save
+    redirect_to devices_url, notice: t('device.sleepy', name: @device.name) 
+  end
+
+  def wake
+    @device.active = true
+    @device.save
+    redirect_to devices_url, notice: t('device.awake', name: @device.name) 
   end
 
   private

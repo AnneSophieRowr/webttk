@@ -1,6 +1,8 @@
 .bar-title
   %h2.pull-left= t('model.device')
   .btn-group.pull-right
+    = link_to devices_path(format: 'csv'), class: 'btn btn-default', title: t('device.export') do
+      %span.fa.fa-download
     = link_to new_device_path, class: 'btn btn-default', title: t('device.new') do
       %span.fa.fa-plus
 

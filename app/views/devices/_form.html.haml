@@ -6,7 +6,7 @@
   = f.input :saved
   = f.input :os, collection: Device::OS, selected: @device.os, prompt: t('helpers.words.choose')
   = f.input :infrastructure, collection: Device::INFRASTRUCTURES, selected: @device.infrastructure, prompt: t('helpers.words.choose')
-  = f.input :user_id, collection: User.all, selected: @device.user, prompt: t('helpers.words.choose')
+  = f.input :user_id, collection: User.all, selected: (@device.user.id if @device.user), prompt: t('helpers.words.choose')
   = f.input :environment, collection: Device::ENVIRONMENTS, selected: @device.environment, prompt: t('helpers.words.choose')
   = f.input :virtual, collection: Device::VIRTUAL, selected: @device.virtual, prompt: t('helpers.words.choose')
   = f.input :hypervisor_id, collection: Device.vms, selected: @device.hypervisor, prompt: t('helpers.words.choose')

@@ -13,7 +13,7 @@ class DeviceDecorator < Draper::Decorator
         content << h.content_tag(:dd, h.link_to(vm.name, vm))
       end
     elsif !object.hypervisor.nil?
-      content << [h.content_tag(:dt, I18n.t('device.hypervisor'))]
+      content << [h.content_tag(:dt, I18n.t('device.hypervisor_id'))]
       content << h.content_tag(:dd, object.hypervisor.name)
     end
     content.join(' ').html_safe
