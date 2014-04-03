@@ -35,9 +35,14 @@ class IssuesController < ApplicationController
   end
 
   def update
+    current_status = @issue.status_id
     if @issue.update(issue_params)
       redirect_to @issue, notice: t('issue.update') 
     else
+      if current_status.to_s == '1' and issue_params[:status_id].to_s == '4'
+        @issue.status_id = 4
+        @issue.closure_date = Time.now
+      end
       render action: 'edit' 
     end
   end

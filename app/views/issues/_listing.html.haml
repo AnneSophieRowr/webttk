@@ -20,7 +20,7 @@
     %tbody
       - issues.each do |issue|
         %tr
-          %td= issue.id
+          %td= issue.decorate.id
           %td= issue.report_date 
           %td= issue.status.name 
           %td= issue.description.truncate(20, :omission => "...") unless issue.description.nil?

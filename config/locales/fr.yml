@@ -12,6 +12,12 @@ fr:
               blank: "La cause détaillée doit être renseignée pour pouvoir fermer le ticket"
             closure_date:
               blank: "La date de clotûre doit être renseignée pour pouvoir fermer le ticket"
+            start_date:
+              blank: "La date de début doit être renseignée pour pouvoir fermer le ticket"
+            end_date:
+              blank: "La date de fin doit être renseignée pour pouvoir fermer le ticket"
+            problem:
+              blank: "Le problème doit être renseigné pour pouvoir fermer le ticket"
         status:
           attributes:
             name:

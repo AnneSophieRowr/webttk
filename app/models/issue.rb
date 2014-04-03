@@ -12,7 +12,7 @@ class Issue < ActiveRecord::Base
   has_many      :acts, dependent: :destroy
 
   validates_presence_of :device_id, :status_id, :report_date, :description, :created_by_id, :notified_by_id, :application
-  validates_presence_of :detailed_cause, :closure_date, if: "status.id == 4"
+  validates_presence_of :detailed_cause, :closure_date, :start_date, :end_date, :problem, if: "status.id == 4"
 
   DETECTIONS = %w[Reactif Proactif]
   IMPACTS = %w[weak average strong total].collect {|c| I18n.t("issue.#{c}")}

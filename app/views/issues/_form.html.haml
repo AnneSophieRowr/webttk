@@ -6,14 +6,16 @@
         %h4.panel-title= link_to t('issue.required_fields'), '#required', 'data-toggle' => 'collapse', 'data-parent' => "#accordion"
       .panel-collapse.collapse#required	
         .panel-body
-          = f.input :status_id, collection: Status.all, selected: @issue.status
+          = f.input :status_id, collection: Status.all, selected: @issue.status_id
           = f.input :report_date, as: :disabled_datetimepicker
           = f.input :description
           = f.input :created_by_id, as: :string, disabled: true, :input_html => { :value => @issue.creator.name }
-          = f.input :notified_by_id, collection: User.all.order('last_name asc'), selected: @issue.notifier.nil? ? current_user.id : @issue.notifier
-          = f.input :followed_by_id, collection: User.all.order('last_name asc'), selected: @issue.follower.nil? ? current_user.id : @issue.follower
+          = f.input :notified_by_id, collection: User.all.order('last_name asc'), selected: (@issue.notifier.nil? ? current_user.id : @issue.notifier.id)
+          = f.input :followed_by_id, collection: User.all.order('last_name asc'), selected: (@issue.follower.nil? ? current_user.id : @issue.follower.id)
           = f.input :device_id, collection: Device.all.order('name asc'), selected: @issue.device
           = f.input :application
+          = f.input :detection, collection: Issue::DETECTIONS, selected: @issue.detection
+          = f.input :impact, collection: Issue::IMPACTS, selected: @issue.impact
 
     .panel.panel-default
       .panel-heading
@@ -30,9 +32,7 @@
       .panel-collapse.collapse#manager
         .panel-body
           = f.input :closure_date, as: :datetimepicker
-          = f.input :detection, collection: Issue::DETECTIONS, selected: @issue.detection
           = f.input :app_status, collection: Issue::APP_STATUSES, selected: @issue.app_status, prompt: t('helpers.words.choose')
-          = f.input :impact, collection: Issue::IMPACTS, selected: @issue.impact, prompt: t('helpers.words.choose')
           = f.input :category_id, collection: Category.all, selected: @issue.category, prompt: t('helpers.words.choose')
           = f.input :problem
 

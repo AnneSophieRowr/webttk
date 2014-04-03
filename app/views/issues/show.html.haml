@@ -1,5 +1,5 @@
 .bar-title
-  %h2.pull-left= @issue.description.truncate(60, :omission => "...") if @issue.description
+  %h2.pull-left= @issue.decorate.title
   .btn-group.pull-right
     = link_to issue_acts_path(@issue), class: 'btn btn-default', title: t('issue.actions') do
       %span.fa.fa-flag-checkered
@@ -26,6 +26,10 @@
     %dd= link_to @issue.device.name, @issue.device
     %dt= t('issue.application')
     %dd= @issue.application
+    %dt= t('issue.detection')
+    %dd= @issue.detection
+    %dt= t('issue.impact')
+    %dd= @issue.impact
 
 - unless @issue.acts.empty?
   .well
@@ -56,12 +60,8 @@
   %dl.dl-horizontal
     %dt= t('issue.closure_date')
     %dd= @issue.closure_date
-    %dt= t('issue.detection')
-    %dd= @issue.detection
     %dt= t('issue.app_status')
     %dd= @issue.app_status
-    %dt= t('issue.impact')
-    %dd= @issue.impact
     %dt= t('issue.category')
     %dd= link_to(@issue.category.name, @issue.category) unless @issue.category.nil?
     %dt= t('issue.problem')
