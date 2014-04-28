@@ -13,7 +13,6 @@ class IssuesController < ApplicationController
 
   def new
     @issue = Issue.new
-    @issue.report_date = DateTime.now 
     @issue.created_by_id = current_user.id
   end
 

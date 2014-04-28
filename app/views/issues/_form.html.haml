@@ -7,7 +7,7 @@
       .panel-collapse.collapse#required	
         .panel-body
           = f.input :status_id, collection: Status.all, selected: @issue.status_id
-          = f.input :report_date, as: :disabled_datetimepicker
+          = f.input :report_date, as: :disabled_datetimepicker, input_html: { value: (@issue.report_date.nil? ? Time.now : @issue.report_date) }
           = f.input :description
           = f.input :created_by_id, as: :string, disabled: true, :input_html => { :value => @issue.creator.name }
           = f.input :notified_by_id, collection: User.all.order('last_name asc'), selected: (@issue.notifier.nil? ? current_user.id : @issue.notifier.id)

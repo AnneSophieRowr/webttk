@@ -22,7 +22,7 @@ class Issue < ActiveRecord::Base
   scope :this_year, where('report_date between ? and ?', DateTime.now - 1.year, DateTime.now)
 
   def label
-    "#{description.truncate(25, :omission => "...")} - #{status.name}"
+    "#{decorate.id} - #{description.truncate(25, :omission => "...")} - #{status.name}"
   end
 
   def duration1
