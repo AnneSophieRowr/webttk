@@ -18,7 +18,7 @@
           %td= act.description.truncate(40, :omission => "...") unless act.description.nil? 
           %td= act.report_date.to_datetime
           %td= act.user.decorate.name unless act.user.nil?
-          %td
+          %td.actions
             = link_to issue_act_path(@issue, act), class: 'btn btn-default', title: t('act.show') do
               %span.fa.fa-eye
             = link_to edit_issue_act_path(@issue, act), class: 'btn btn-default', title: t('act.edit') do

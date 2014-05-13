@@ -64,7 +64,7 @@ fr:
     show: "Voir l'utilisateur"
     new: "Créer un utilisateur"
     create: "L'utilisateur %{name} a été créé avec succès"
-    edit: "Mettre à jour un utilisateur"
+    edit: "Mettre à jour l'utilisateur"
     update: "L'utilisateur %{name} a été mis à jour avec succès"
     destroy: "Supprimer cet utilisteur"
     confirm_destroy: "Etes-vous sûr de vouloir supprimer cet utilisateur?"
@@ -78,7 +78,7 @@ fr:
     last_sign_in_ip: "Adresse IP de dernière connexion"
     sign_in_count: "Nombre de connexions"
   act:
-    show: "Montrer l'action"
+    show: "Voir l'action"
     new: "Nouvelle action"
     create: "Une nouvelle action a bien été créée pour le ticket"
     edit: "Modifier l'action"
@@ -96,7 +96,7 @@ fr:
     show: "Voir le ticket"
     new: "Créer un ticket"
     create: "Ticket créé avec succès"
-    edit: "Mettre à jour un ticket"
+    edit: "Mettre à jour le ticket"
     update: "Ticket mis à jour avec succès"
     destroy: "Supprimer ce ticket"
     confirm_destroy: "Etes-vous sûr de vouloir supprimer ce ticket?"
@@ -139,7 +139,7 @@ fr:
   device:
     export: "Exporter les équipements au format CSV"
     history: "Voir l'historique des modifications"
-    show: "Montrer l'équipement"
+    show: "Voir l'équipement"
     new: "Créer un équipement"
     create: "L'équipement %{name} a été créé avec succès"
     edit: "Mettre à jour cet équipement"
@@ -168,7 +168,7 @@ fr:
     created_at: "Créé le"
     updated_at: "Mis à jour le"
   status:
-    show: "Montrer le statut"
+    show: "Voir le statut"
     new: "Créer un statut"
     create: "Le statut %{name} a été créé avec succès"
     edit: "Mettre à jour ce statut"
@@ -181,7 +181,7 @@ fr:
     name: "Nom"
     description: "Description"
   category:
-    show: "Montrer la catégorie"
+    show: "Voir la catégorie"
     new: "Créer une catégorie"
     create: "La catégorie %{name} a été créée avec succès"
     edit: "Mettre à jour une catégorie"
