@@ -11,6 +11,10 @@ class ActsController < ApplicationController
     @act = @issue.acts.build
   end
 
+  def show
+    @act = @act.decorate
+  end
+
   def edit
   end
 

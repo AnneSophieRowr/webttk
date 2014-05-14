@@ -34,7 +34,7 @@ fr:
         app_status: "Statut de l'application"
         impact: "Impact"
         category_id: "Catégorie"
-        problem: "Problème"
+        problem: "Problème management"
       act:
         user_id: "Utilisateur"
         report_date: "Date"

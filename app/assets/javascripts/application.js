@@ -6,7 +6,7 @@
 //= require_tree ./libs
 
 $(document).ready(function(){
-
+  
   $('.timepicker').datetimepicker({
     language: 'fr',
     pickDate: false

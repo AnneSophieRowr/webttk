@@ -1,5 +1,5 @@
 .bar-title
-  %h2.pull-left= @issue.decorate.title
+  %h2.pull-left= @issue.title
   .btn-group.pull-right
     = link_to issue_acts_path(@issue), class: 'btn btn-default', title: t('issue.actions') do
       %span.fa.fa-flag-checkered
@@ -10,61 +10,32 @@
 
 .well
   %dl.dl-horizontal
-    %dt= t('issue.status')
-    %dd= @issue.status.name
-    %dt= t('issue.report_date')
-    %dd= @issue.report_date
-    %dt= t('issue.description')
-    %dd= @issue.description  
-    %dt= t('issue.created_by_id')
-    %dd= link_to @issue.creator.name, @issue.creator
-    %dt= t('issue.notified_by_id')
-    %dd= link_to @issue.notifier.name, @issue.notifier
-    %dt= t('issue.followed_by_id')
-    %dd= link_to @issue.follower.name, @issue.follower unless @issue.follower.nil?
-    %dt= t('issue.device_id')
-    %dd= link_to @issue.device.name, @issue.device
-    %dt= t('issue.application')
-    %dd= @issue.application
-    %dt= t('issue.detection')
-    %dd= @issue.detection
-    %dt= t('issue.impact')
-    %dd= @issue.impact
+    = @issue.status
+    = @issue.report_date
+    = @issue.description
+    = @issue.creator
+    = @issue.notifier
+    = @issue.follower
+    = @issue.device
+    = @issue.application
+    = @issue.detection
+    = @issue.impact
 
 - unless @issue.acts.empty?
   .well
     %dl.dl-horizontal
-      = @issue.decorate.actions_show
+      = @issue.actions_show
 
 .well
   %dl.dl-horizontal
-    %dt= t('issue.detailed_cause')
-    %dd= @issue.detailed_cause
-    %dt= t('issue.start_date')
-    %dd= @issue.start_date
-    %dt= t('issue.end_date')
-    %dd= @issue.end_date
-    %br
-    %dt
-      = t('issue.duration1')
-      .small 
-        = t('issue.duration1_desc')
-    %dd= duration(@issue.start_date, @issue.end_date) unless @issue.start_date.nil?
-    %dt
-      = t('issue.duration2')
-      .small 
-        = t('issue.duration2_desc')
-    %dd= duration(@issue.report_date, @issue.closure_date) 
-
-.well
-  %dl.dl-horizontal
-    %dt= t('issue.closure_date')
-    %dd= @issue.closure_date
-    %dt= t('issue.app_status')
-    %dd= @issue.app_status
-    %dt= t('issue.category')
-    %dd= link_to(@issue.category.name, @issue.category) unless @issue.category.nil?
-    %dt= t('issue.problem')
-    %dd= @issue.problem
+    = @issue.detailed_cause
+    = @issue.start_date
+    = @issue.end_date
+    = @issue.closure_date
+    = @issue.duration1
+    = @issue.duration2
+    = @issue.app_status
+    = @issue.category
+    = @issue.problem
 
 = link_to t('helpers.submit.back'), issues_path, :class => 'btn btn-default'

@@ -14,8 +14,6 @@
       %th= t('issue.description')
       %th= t('issue.followed_by_id')
       %th= t('issue.application')
-      %th= t('issue.device_id')
-      %th= t('issue.acts')
       %th
     %tbody
       - issues.each do |issue|
@@ -23,11 +21,9 @@
           %td= issue.decorate.id
           %td= issue.report_date 
           %td= issue.status.name 
-          %td= issue.description.truncate(20, :omission => "...") unless issue.description.nil?
+          %td.fixed30= issue.description
           %td= issue.follower.name
-          %td= issue.application
-          %td= issue.device.name unless issue.device.nil?
-          %td= issue.acts.count
+          %td.fixed20= issue.application
           %td.actions
             .row
               = link_to issue, class: 'btn btn-default', title: t('issue.show') do

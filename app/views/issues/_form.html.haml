@@ -4,7 +4,7 @@
     .panel.panel-default
       .panel-heading
         %h4.panel-title= link_to t('issue.required_fields'), '#required', 'data-toggle' => 'collapse', 'data-parent' => "#accordion"
-      .panel-collapse.collapse#required	
+      .panel-collapse.collapse.in#required	
         .panel-body
           = f.input :status_id, collection: Status.all, selected: @issue.status_id
           = f.input :report_date, as: :disabled_datetimepicker, input_html: { value: (@issue.report_date.nil? ? Time.now : @issue.report_date) }
@@ -14,23 +14,17 @@
           = f.input :followed_by_id, collection: User.all.order('last_name asc'), selected: (@issue.follower.nil? ? current_user.id : @issue.follower.id)
           = f.input :device_id, collection: Device.all.order('name asc'), selected: @issue.device
           = f.input :application
-          = f.input :detection, collection: Issue::DETECTIONS, selected: @issue.detection
-          = f.input :impact, collection: Issue::IMPACTS, selected: @issue.impact
+          = f.input :detection, collection: Issue::DETECTIONS, selected: @issue.detection, prompt: t('helpers.words.choose')
+          = f.input :impact, collection: Issue::IMPACTS, selected: @issue.impact, prompt: t('helpers.words.choose')
 
     .panel.panel-default
       .panel-heading
         %h4.panel-title= link_to t('issue.treatment_fields'), '#treatment', 'data-toggle' => 'collapse', 'data-parent' => "#accordion"
-      .panel-collapse.collapse#treatment	
+      .panel-collapse.collapse.in#treatment	
         .panel-body
           = f.input :detailed_cause
           = f.input :start_date, as: :datetimepicker
           = f.input :end_date, as: :datetimepicker
-
-    .panel.panel-default
-      .panel-heading
-        %h4.panel-title= link_to t('issue.manager_fields'), '#manager', 'data-toggle' => 'collapse', 'data-parent' => "#accordion"
-      .panel-collapse.collapse#manager
-        .panel-body
           = f.input :closure_date, as: :datetimepicker
           = f.input :app_status, collection: Issue::APP_STATUSES, selected: @issue.app_status, prompt: t('helpers.words.choose')
           = f.input :category_id, collection: Category.all, selected: @issue.category, prompt: t('helpers.words.choose')

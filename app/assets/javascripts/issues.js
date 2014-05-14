@@ -1,13 +1,10 @@
 $(document).ready(function(){
 
-  if ($('.has-error').length != 0) {
-    _.each($('.has-error'), function(error) {
-      $(error).parent().parent().prev().addClass('red');
-      $(error).parent().parent().collapse();
-    });
-  }
-  else {
-    $('#required').collapse();
-  }
+  $('#issue_status_id').on('change', function() {
+    if ($(this).val() == 4) {
+      $('#issue_closure_date').val(moment().format('Do/MM/YYYY'));
+      $('#issue_closure_time').val(moment().format('HH:mm'));
+    }
+  });
 
 });

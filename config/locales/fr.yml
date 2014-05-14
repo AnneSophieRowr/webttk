@@ -8,6 +8,10 @@ fr:
               blank: "L'application doit être renseignée"
             description:
               blank: "La description doit être renseignée"
+            detection:
+              blank: "La détection doit être renseignée"
+            impact: 
+              blank: "L'impact doit être renseigné"
             detailed_cause:
               blank: "La cause détaillée doit être renseignée pour pouvoir fermer le ticket"
             closure_date:
@@ -120,10 +124,10 @@ fr:
     duration1_desc: "Date de fin - date de début"
     duration2: "Durée 2"
     duration2_desc: "Date de clotûre - date d'ouverture"
-    manager_fields: "Champs manager"
     closure_date: "Date de clotûre"
     detection: "Détection"
     impact: "Impact"
+    none: "Aucun impact"
     weak: "Blocage faible (< 10%)"
     average: "Blocage moyen (< 30%)"
     strong: "Blocage fort (> 30%)"
@@ -131,7 +135,8 @@ fr:
     app_status: "Statut de l'application"
     category: "Catégorie"
     category_id: "Catégorie"
-    problem: "Problème"
+    problem: "Problème management"
+    problem_desc: "Suggestion pour amélioration"
     device_id: "Equipement"
     user: "Mes tickets"
     created_at: "Créé le"
