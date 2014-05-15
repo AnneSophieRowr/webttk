@@ -4,7 +4,7 @@
 - else
   .pull-left.paginate
     = [issues.total_count.to_s, t('model.issue').downcase].join(" ")
-    = paginate issues
+    = paginate issues, remote: true
 
   %table.table.table-striped.table-hover
     %tr
