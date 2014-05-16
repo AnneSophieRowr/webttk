@@ -9,7 +9,10 @@ module Concerns
       objects = q.empty? ? model.all : model.search(q).page(params[:page])
       results = objects.collect {|o| {label: o.label , url: o.respond_to?(:show_path) ? o.show_path : polymorphic_url(o)}}
 
-      render json: results
+      respond_to do |format|
+        format.html { render partial: "#{controller_name}/listing", locals: { controller_name.to_sym => objects }, layout: false }
+        format.json { render json: results }
+      end
     end   
 
     def filter

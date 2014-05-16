@@ -7,6 +7,16 @@ $(document).ready(function(){
     engine: Hogan
   });
 
+  $('.searchbar').on('keypress', function() {
+    $.get(
+      $(this).attr('url'),
+      {q: $(this).val()},
+      function (data) {
+        $('.partial')[0].innerHTML = data;
+      }
+    );
+  });
+
   $('.searchbar').on('typeahead:selected', function (object, datum) {
     window.location = datum.url
   }); 
@@ -16,7 +26,6 @@ $(document).ready(function(){
     _.each($('.filter'), function(filter) {
       params[filter.name] = (filter.type == 'checkbox' && !filter.checked) ? 0 : filter.value
     });
-    console.log(params);
 
     $.get(
       $(this).attr('url'),
